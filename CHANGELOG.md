@@ -6,9 +6,13 @@ All notable changes to egi-optics.com are documented here. The format follows
 
 ## [Unreleased]
 
+## [1.1.1] - 2026-09-15
+
 ### Fixed
-- Accessibility: footer column labels are paragraphs instead of `h6` headings (heading order), and the
-  violet product accent is brighter (#A78BFA) to meet the 4.5:1 contrast ratio for small text.
+- Header Products dropdown: item labels are light on the navy panel. WordPress core defaults
+  submenus to black-on-white, which disappeared against the dark surface.
+- Mobile menu overlay uses the theme contrast colour (and native overlay text/background slugs) so
+  expanded Products rows stay readable; the header no longer applies `backdrop-filter` on itself.
 
 ## [1.1.0] - 2026-09-15
 
@@ -75,6 +79,7 @@ custom WordPress block theme, deployed from Git.
   Elementor library items (all trashed, recoverable; full pre-redesign snapshot in
   `~/backups/egi-optics/pre-overhaul-20260915-022900/`).
 
-[Unreleased]: https://github.com/echestratus/egi-optics/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/echestratus/egi-optics/compare/v1.1.1...HEAD
+[1.1.1]: https://github.com/echestratus/egi-optics/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/echestratus/egi-optics/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/echestratus/egi-optics/releases/tag/v1.0.0
