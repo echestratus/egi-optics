@@ -104,6 +104,18 @@ if ( $egi_uncat && 0 === (int) $egi_uncat->count ) {
 	}
 }
 
+// Pages rebuilt with blocks must not be rendered by Elementor if it is ever re-activated:
+// drop the "built with Elementor" flag (the old design data stays in the pre-overhaul backup).
+foreach ( array( 'home', 'about', 'contact', 'news' ) as $egi_slug ) {
+	$egi_page = get_page_by_path( $egi_slug, OBJECT, 'page' );
+	if ( $egi_page ) {
+		delete_post_meta( $egi_page->ID, '_elementor_edit_mode' );
+		delete_post_meta( $egi_page->ID, '_elementor_template_type' );
+		delete_post_meta( $egi_page->ID, '_elementor_data' );
+		delete_post_meta( $egi_page->ID, '_elementor_css' );
+	}
+}
+
 // Elementor / Solace leftovers in the library (templates, kits) - trash so they can be restored if needed.
 foreach ( array( 'elementor_library', 'solace-sitebuilder', 'ha_library', 'e-floating-buttons' ) as $egi_type ) {
 	if ( ! post_type_exists( $egi_type ) ) {
