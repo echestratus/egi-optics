@@ -162,20 +162,20 @@ $egi_media = array(
 	'EGI-Laser-Weapon-System-Fenix-Complex-Remote-Control-Unit-Datasheet.pdf' => array( 'title' => 'Datasheet - Laser Weapon System, Fenix Complex and Remote Control Unit' ),
 
 	// News photos (Paspampres demonstration, 7 September 2026).
-	'paspampres-demonstration-brig-gen-la-ode-laser-gun.jpg' => array(
-		'title'   => 'Brig. Gen. TNI La Ode test-fires the EGI laser gun',
-		'alt'     => 'Brigadier General TNI La Ode wearing protective laser goggles aims the EGI counter-UAV laser gun at the Setia Waspada Shooting Club, Mako Paspampres, while an EGI engineer observes',
-		'caption' => 'Brig. Gen. TNI La Ode test-fires the EGI counter-UAV laser gun at Mako Paspampres, Tanah Abang, 7 September 2026.',
+	'paspampres-demonstration-brig-gen-laode-laser-gun.jpg' => array(
+		'title'   => 'Brig. Gen. TNI Laode test-fires the EGI laser gun',
+		'alt'     => 'Brigadier General TNI Laode wearing protective laser goggles aims the EGI counter-UAV laser gun at the Setia Waspada Shooting Club, Mako Paspampres, while an EGI engineer observes',
+		'caption' => 'Brig. Gen. TNI Laode test-fires the EGI counter-UAV laser gun at Mako Paspampres, Tanah Abang, 7 September 2026.',
 	),
-	'paspampres-demonstration-brig-gen-la-ode-egi-team.jpg' => array(
-		'title'   => 'Brig. Gen. TNI La Ode in discussion with the EGI team',
-		'alt'     => 'Brigadier General TNI La Ode in discussion with EGI Optik Indonesia representatives at the Paspampres shooting range',
-		'caption' => 'Brig. Gen. TNI La Ode discusses the laser system with the EGI Optik Indonesia team after the live demonstration.',
+	'paspampres-demonstration-brig-gen-laode-egi-team.jpg' => array(
+		'title'   => 'Brig. Gen. TNI Laode in discussion with the EGI team',
+		'alt'     => 'Brigadier General TNI Laode in discussion with EGI Optik Indonesia representatives at the Paspampres shooting range',
+		'caption' => 'Brig. Gen. TNI Laode discusses the laser system with the EGI Optik Indonesia team after the live demonstration.',
 	),
-	'paspampres-demonstration-lt-col-deni-sofyan-laser-gun.jpg' => array(
-		'title'   => 'Lt. Col. Inf. Deni Sofyan handles the laser gun',
-		'alt'     => 'Lieutenant Colonel Infantry Deni Sofyan wearing protective goggles shoulders the EGI counter-UAV laser gun, with a Paspampres officer and an EGI engineer beside him',
-		'caption' => 'Lt. Col. Inf. Deni Sofyan walks the delegation through the operating procedure of the laser gun.',
+	'paspampres-demonstration-lt-col-denny-sopyan-laser-gun.jpg' => array(
+		'title'   => 'Lt. Col. Inf. Denny Sopyan handles the laser gun',
+		'alt'     => 'Lieutenant Colonel Infantry Denny Sopyan wearing protective goggles shoulders the EGI counter-UAV laser gun, with a Paspampres officer and an EGI engineer beside him',
+		'caption' => 'Lt. Col. Inf. Denny Sopyan walks the delegation through the operating procedure of the laser gun.',
 	),
 );
 

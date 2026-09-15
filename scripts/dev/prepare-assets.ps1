@@ -79,9 +79,9 @@ Copy-Asset "$HoldingDir\documents\laserweaponsystem-counteruavlasercomplex-remot
 
 # --- News photos: resize to 2000px wide JPEG
 $photos = @{
-	'brigjen-laode1.jpg'                 = 'paspampres-demonstration-brig-gen-la-ode-laser-gun.jpg'
-	'brigjen-laode-2.jpg'                = 'paspampres-demonstration-brig-gen-la-ode-egi-team.jpg'
-	'letkol-infanteri-denny-sopyan.jpg'  = 'paspampres-demonstration-lt-col-deni-sofyan-laser-gun.jpg'
+	'brigjen-laode1.jpg'                 = 'paspampres-demonstration-brig-gen-laode-laser-gun.jpg'
+	'brigjen-laode-2.jpg'                = 'paspampres-demonstration-brig-gen-laode-egi-team.jpg'
+	'letkol-infanteri-denny-sopyan.jpg'  = 'paspampres-demonstration-lt-col-denny-sopyan-laser-gun.jpg'
 }
 foreach ($k in $photos.Keys) {
 	$src = Join-Path $NewsDir $k
