@@ -57,8 +57,8 @@ chmod 600 "$DEST"/*
 } > "$DEST/MANIFEST"
 
 # --- Prune old deploy backups (never touch pre-overhaul-* snapshots).
-mapfile -t OLD < <(ls -1d "$BACKUP_DIR"/"$LABEL"-* 2>/dev/null | sort | head -n -"$KEEP")
-for d in "${OLD[@]:-}"; do
+# (No process substitution: /dev/fd is not available inside Hostinger's CageFS.)
+ls -1d "$BACKUP_DIR"/"$LABEL"-* 2>/dev/null | sort | head -n -"$KEEP" | while IFS= read -r d; do
 	[ -n "$d" ] && rm -rf "$d" && echo "[backup] pruned $d"
 done
 
