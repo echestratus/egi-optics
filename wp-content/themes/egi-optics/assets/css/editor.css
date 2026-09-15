@@ -1,0 +1,31 @@
+/* Editor-only adjustments so the canvas matches the front end. */
+
+.editor-styles-wrapper {
+	--egi-accent: var(--wp--preset--color--primary);
+	--egi-accent-soft: rgba(59, 130, 246, 0.14);
+	--egi-line: 1px solid var(--wp--preset--color--border);
+	--egi-header-h: 76px;
+}
+
+/* Reveal animations must not hide content while editing. */
+.editor-styles-wrapper .egi-reveal,
+.editor-styles-wrapper .egi-reveal-stagger > * {
+	opacity: 1 !important;
+	transform: none !important;
+}
+
+.editor-styles-wrapper .egi-hero .wp-block-cover__image-background {
+	animation: none;
+}
+
+/* Make empty bound paragraphs visible in the editor. */
+.editor-styles-wrapper .egi-product-tagline:empty {
+	display: block;
+	min-height: 1em;
+}
+
+/* Sticky header would overlap the editor toolbar. */
+.editor-styles-wrapper .egi-header {
+	position: relative;
+	top: auto;
+}

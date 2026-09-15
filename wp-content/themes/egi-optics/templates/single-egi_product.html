@@ -1,0 +1,119 @@
+<!-- wp:template-part {"slug":"header","tagName":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"egi-product-content","layout":{"type":"default"}} -->
+<main class="wp-block-group egi-product-content" id="content">
+
+	<!-- wp:group {"align":"full","className":"egi-product-hero egi-grid-bg egi-line-bottom","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull egi-product-hero egi-grid-bg egi-line-bottom" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)">
+		<!-- wp:columns {"align":"wide","verticalAlignment":"center","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|70","top":"var:preset|spacing|60"}}}} -->
+		<div class="wp-block-columns alignwide are-vertically-aligned-center">
+			<!-- wp:column {"verticalAlignment":"center","width":"52%","className":"egi-hero__content"} -->
+			<div class="wp-block-column is-vertically-aligned-center egi-hero__content" style="flex-basis:52%">
+				<!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|30"}}} -->
+				<div class="wp-block-group">
+					<!-- wp:paragraph {"className":"egi-label egi-label--dot","metadata":{"bindings":{"content":{"source":"egi/site","args":{"key":"product_category"}}}}} -->
+					<p class="egi-label egi-label--dot">Product</p>
+					<!-- /wp:paragraph -->
+					<!-- wp:paragraph {"className":"egi-label egi-label--muted"} -->
+					<p class="egi-label egi-label--muted">·</p>
+					<!-- /wp:paragraph -->
+					<!-- wp:paragraph {"className":"egi-product-tagline","metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"egi_tagline"}}}}} -->
+					<p class="egi-product-tagline"></p>
+					<!-- /wp:paragraph -->
+				</div>
+				<!-- /wp:group -->
+				<!-- wp:post-title {"level":1,"className":"egi-balance","style":{"typography":{"fontSize":"var:preset|font-size|4xl"},"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} /-->
+				<!-- wp:post-excerpt {"className":"egi-lead","style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} /-->
+				<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|50"},"blockGap":"var:preset|spacing|30"}}} -->
+				<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--50)">
+					<!-- wp:button {"metadata":{"bindings":{"url":{"source":"egi/site","args":{"key":"contact_url"}}}}} -->
+					<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/contact/">Request a briefing</a></div>
+					<!-- /wp:button -->
+					<!-- wp:button {"className":"is-style-egi-outline egi-datasheet-btn","metadata":{"bindings":{"url":{"source":"core/post-meta","args":{"key":"egi_datasheet_url"}},"text":{"source":"core/post-meta","args":{"key":"egi_datasheet_label"}}}}} -->
+					<div class="wp-block-button is-style-egi-outline egi-datasheet-btn"><a class="wp-block-button__link wp-element-button" href="#">Download datasheet</a></div>
+					<!-- /wp:button -->
+				</div>
+				<!-- /wp:buttons -->
+			</div>
+			<!-- /wp:column -->
+			<!-- wp:column {"verticalAlignment":"center","width":"48%"} -->
+			<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:48%">
+				<!-- wp:group {"className":"egi-hud","layout":{"type":"default"}} -->
+				<div class="wp-block-group egi-hud">
+					<!-- wp:group {"className":"egi-media-frame","layout":{"type":"default"}} -->
+					<div class="wp-block-group egi-media-frame">
+						<!-- wp:post-featured-image {"aspectRatio":"4/3","sizeSlug":"large","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}}}} /-->
+					</div>
+					<!-- /wp:group -->
+				</div>
+				<!-- /wp:group -->
+			</div>
+			<!-- /wp:column -->
+		</div>
+		<!-- /wp:columns -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"bottom":"var:preset|spacing|80"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull" style="padding-bottom:var(--wp--preset--spacing--80)">
+		<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"align":"full","className":"egi-line-top","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull egi-line-top" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
+		<!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"bottom"}} -->
+		<div class="wp-block-group alignwide" style="margin-bottom:var(--wp--preset--spacing--60)">
+			<!-- wp:group {"layout":{"type":"constrained","justifyContent":"left","contentSize":"720px"}} -->
+			<div class="wp-block-group">
+				<!-- wp:paragraph {"className":"egi-label"} -->
+				<p class="egi-label">More systems</p>
+				<!-- /wp:paragraph -->
+				<!-- wp:heading {"style":{"typography":{"fontSize":"var:preset|font-size|3xl"}}} -->
+				<h2 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--3xl)">Related products</h2>
+				<!-- /wp:heading -->
+			</div>
+			<!-- /wp:group -->
+			<!-- wp:buttons -->
+			<div class="wp-block-buttons">
+				<!-- wp:button {"className":"is-style-egi-ghost"} -->
+				<div class="wp-block-button is-style-egi-ghost"><a class="wp-block-button__link wp-element-button" href="/products/">Full catalogue</a></div>
+				<!-- /wp:button -->
+			</div>
+			<!-- /wp:buttons -->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:query {"queryId":40,"query":{"perPage":3,"pages":0,"offset":0,"postType":"egi_product","order":"asc","orderBy":"menu_order","author":"","search":"","exclude":[],"sticky":"","inherit":false},"align":"wide","className":"egi-related-products"} -->
+		<div class="wp-block-query alignwide egi-related-products">
+			<!-- wp:post-template {"style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"grid","columnCount":3}} -->
+				<!-- wp:group {"className":"egi-product-card","layout":{"type":"default"}} -->
+				<div class="wp-block-group egi-product-card">
+					<!-- wp:group {"className":"egi-product-card__media","layout":{"type":"default"}} -->
+					<div class="wp-block-group egi-product-card__media">
+						<!-- wp:post-featured-image {"aspectRatio":"4/3","sizeSlug":"egi-card"} /-->
+					</div>
+					<!-- /wp:group -->
+					<!-- wp:group {"className":"egi-product-card__body","layout":{"type":"default"}} -->
+					<div class="wp-block-group egi-product-card__body">
+						<!-- wp:paragraph {"className":"egi-product-tagline","metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"egi_tagline"}}}}} -->
+						<p class="egi-product-tagline"></p>
+						<!-- /wp:paragraph -->
+						<!-- wp:post-title {"level":3,"isLink":true} /-->
+						<!-- wp:post-excerpt {"excerptLength":18,"showMoreOnNewLine":false} /-->
+					</div>
+					<!-- /wp:group -->
+				</div>
+				<!-- /wp:group -->
+			<!-- /wp:post-template -->
+		</div>
+		<!-- /wp:query -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:pattern {"slug":"egi-optics/cta-contact"} /-->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer","area":"footer"} /-->

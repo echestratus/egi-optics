@@ -1,0 +1,10 @@
+node_modules/
+vendor/
+.wp-env/
+build/
+dist/
+wp-content/plugins/*
+!wp-content/plugins/egi-optics-core/
+wp-content/themes/*
+!wp-content/themes/egi-optics/
+**/*.min.css

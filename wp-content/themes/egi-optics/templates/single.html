@@ -1,0 +1,43 @@
+<!-- wp:template-part {"slug":"header","tagName":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"egi-article","layout":{"type":"default"}} -->
+<main class="wp-block-group egi-article" id="content">
+
+	<!-- wp:group {"align":"full","className":"egi-grid-bg","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained","contentSize":"860px"}} -->
+	<div class="wp-block-group alignfull egi-grid-bg" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--60)">
+		<!-- wp:template-part {"slug":"post-meta","area":"uncategorized"} /-->
+		<!-- wp:post-title {"level":1,"className":"egi-balance","style":{"typography":{"fontSize":"var:preset|font-size|4xl"},"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} /-->
+		<!-- wp:post-excerpt {"className":"egi-lead","style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} /-->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignwide">
+		<!-- wp:post-featured-image {"aspectRatio":"21/9","align":"wide","className":"egi-media-frame is-style-egi-plain"} /-->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|70"}}},"layout":{"type":"constrained","contentSize":"760px"}} -->
+	<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--70)">
+		<!-- wp:post-content {"layout":{"type":"constrained","contentSize":"760px","wideSize":"1200px"}} /-->
+
+		<!-- wp:separator {"className":"is-style-egi-glow","style":{"spacing":{"margin":{"top":"var:preset|spacing|70"}}}} -->
+		<hr class="wp-block-separator has-alpha-channel-opacity is-style-egi-glow" style="margin-top:var(--wp--preset--spacing--70)"/>
+		<!-- /wp:separator -->
+
+		<!-- wp:group {"className":"egi-post-nav","style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+		<div class="wp-block-group egi-post-nav" style="margin-top:var(--wp--preset--spacing--50)">
+			<!-- wp:post-navigation-link {"type":"previous","showTitle":true,"label":"Previous article","arrow":"arrow"} /-->
+			<!-- wp:post-navigation-link {"showTitle":true,"label":"Next article","arrow":"arrow"} /-->
+		</div>
+		<!-- /wp:group -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:pattern {"slug":"egi-optics/news-latest"} /-->
+	<!-- wp:pattern {"slug":"egi-optics/cta-contact"} /-->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer","area":"footer"} /-->

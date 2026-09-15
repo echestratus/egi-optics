@@ -38,9 +38,9 @@
 		<properties>
 			<property name="prefixes" type="array">
 				<element value="egi_optics"/>
-				<element value="egi"/>
+				<element value="egi_core"/>
 				<element value="EGI_OPTICS"/>
-				<element value="EGI"/>
+				<element value="EGI_CORE"/>
 			</property>
 		</properties>
 	</rule>

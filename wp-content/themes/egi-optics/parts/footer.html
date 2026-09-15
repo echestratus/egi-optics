@@ -1,0 +1,89 @@
+<!-- wp:group {"tagName":"footer","className":"egi-footer","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|50"}}},"layout":{"type":"default"}} -->
+<footer class="wp-block-group egi-footer" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--50)">
+	<!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignwide">
+
+		<!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|60","left":"var:preset|spacing|60"}}}} -->
+		<div class="wp-block-columns alignwide">
+
+			<!-- wp:column {"width":"36%"} -->
+			<div class="wp-block-column" style="flex-basis:36%">
+				<!-- wp:site-logo {"width":190} /-->
+				<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}},"metadata":{"bindings":{"content":{"source":"egi/site","args":{"key":"tagline"}}}}} -->
+				<p style="margin-top:var(--wp--preset--spacing--40)">Precision Laser and Electro-Optical Defense Systems</p>
+				<!-- /wp:paragraph -->
+				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|sm"}}} -->
+				<p style="font-size:var(--wp--preset--font-size--sm)">Founded in 2020, PT EGI Optik Indonesia designs, assembles and supports laser, thermal and night-vision systems for Indonesia's armed forces and security agencies.</p>
+				<!-- /wp:paragraph -->
+				<!-- wp:paragraph {"className":"egi-external"} -->
+				<p class="egi-external"><a class="egi-badge-holding" href="https://egiresources.com/subsidiaries/egi-optic">Part of EGI Resources</a></p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:column -->
+
+			<!-- wp:column {"width":"18%"} -->
+			<div class="wp-block-column" style="flex-basis:18%">
+				<!-- wp:heading {"level":6,"className":"egi-footer__heading"} -->
+				<h6 class="wp-block-heading egi-footer__heading">Company</h6>
+				<!-- /wp:heading -->
+				<!-- wp:navigation {"className":"egi-nav-footer","overlayMenu":"never","showSubmenuIcon":false,"openSubmenusOnClick":false,"layout":{"type":"flex","orientation":"vertical"},"style":{"spacing":{"blockGap":"var:preset|spacing|20"}}} /-->
+			</div>
+			<!-- /wp:column -->
+
+			<!-- wp:column {"width":"22%"} -->
+			<div class="wp-block-column" style="flex-basis:22%">
+				<!-- wp:heading {"level":6,"className":"egi-footer__heading"} -->
+				<h6 class="wp-block-heading egi-footer__heading">Products</h6>
+				<!-- /wp:heading -->
+				<!-- wp:query {"queryId":90,"query":{"perPage":8,"pages":0,"offset":0,"postType":"egi_product","order":"asc","orderBy":"menu_order","author":"","search":"","exclude":[],"sticky":"","inherit":false},"className":"egi-footer-products"} -->
+				<div class="wp-block-query egi-footer-products">
+					<!-- wp:post-template {"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"default"}} -->
+						<!-- wp:post-title {"level":0,"isLink":true,"style":{"typography":{"fontSize":"var:preset|font-size|sm","fontWeight":"400","fontFamily":"var:preset|font-family|body","letterSpacing":"0"}}} /-->
+					<!-- /wp:post-template -->
+				</div>
+				<!-- /wp:query -->
+			</div>
+			<!-- /wp:column -->
+
+			<!-- wp:column {"width":"24%"} -->
+			<div class="wp-block-column" style="flex-basis:24%">
+				<!-- wp:heading {"level":6,"className":"egi-footer__heading"} -->
+				<h6 class="wp-block-heading egi-footer__heading">Contact</h6>
+				<!-- /wp:heading -->
+				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|sm"}},"metadata":{"bindings":{"content":{"source":"egi/site","args":{"key":"address"}}}}} -->
+				<p style="font-size:var(--wp--preset--font-size--sm)">Oscorp Building, Jl. Dharmawangsa Raya No. 16, Kebayoran Baru, South Jakarta 12160, Indonesia</p>
+				<!-- /wp:paragraph -->
+				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|sm"}},"metadata":{"bindings":{"content":{"source":"egi/site","args":{"key":"phone"}}}}} -->
+				<p style="font-size:var(--wp--preset--font-size--sm)">+62 21 3062 9515</p>
+				<!-- /wp:paragraph -->
+				<!-- wp:paragraph {"style":{"typography":{"fontSize":"var:preset|font-size|sm"}},"metadata":{"bindings":{"content":{"source":"egi/site","args":{"key":"email"}}}}} -->
+				<p style="font-size:var(--wp--preset--font-size--sm)">support@egi-optics.com</p>
+				<!-- /wp:paragraph -->
+				<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
+				<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--40)">
+					<!-- wp:button {"className":"is-style-egi-ghost"} -->
+					<div class="wp-block-button is-style-egi-ghost"><a class="wp-block-button__link wp-element-button" href="/contact/">Talk to our team</a></div>
+					<!-- /wp:button -->
+				</div>
+				<!-- /wp:buttons -->
+			</div>
+			<!-- /wp:column -->
+
+		</div>
+		<!-- /wp:columns -->
+
+		<!-- wp:group {"className":"egi-footer__bottom","style":{"spacing":{"padding":{"top":"var:preset|spacing|50"},"margin":{"top":"var:preset|spacing|70"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
+		<div class="wp-block-group egi-footer__bottom" style="margin-top:var(--wp--preset--spacing--70);padding-top:var(--wp--preset--spacing--50)">
+			<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"egi/site","args":{"key":"copyright"}}}}} -->
+			<p>&copy; 2026 PT EGI Optik Indonesia. All rights reserved.</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph -->
+			<p>Technology partners in Eastern Europe &middot; Assembled and supported in Indonesia</p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
+
+	</div>
+	<!-- /wp:group -->
+</footer>
+<!-- /wp:group -->

@@ -27,10 +27,15 @@
     "lint:js": "wp-scripts lint-js wp-content/themes/egi-optics/assets/js wp-content/plugins/egi-optics-core/assets",
     "lint:php": "composer lint",
     "lint:pkg": "wp-scripts lint-pkg-json",
-    "format": "wp-scripts format wp-content/themes/egi-optics/assets wp-content/plugins/egi-optics-core/assets",
-    "format:php": "composer lint:fix"
+    "format": "npm run eol && wp-scripts format wp-content/themes/egi-optics/assets wp-content/plugins/egi-optics-core/assets && wp-scripts lint-style --fix \"wp-content/themes/egi-optics/**/*.css\" \"wp-content/plugins/egi-optics-core/**/*.css\"",
+    "format:php": "composer lint:fix",
+    "eol": "node scripts/dev/normalize-eol.mjs",
+    "fonts": "node scripts/dev/sync-fonts.mjs"
   },
   "devDependencies": {
+    "@fontsource-variable/dm-sans": "^5.3.0",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
+    "@fontsource-variable/space-grotesk": "^5.3.0",
     "@wordpress/env": "^11.15.0",
     "@wordpress/scripts": "^35.0.0"
   },
@@ -42,15 +47,6 @@
       "selector-class-pattern": null,
       "font-weight-notation": null,
       "declaration-property-unit-allowed-list": null
-    }
-  },
-  "eslintConfig": {
-    "extends": "plugin:@wordpress/eslint-plugin/recommended",
-    "env": {
-      "browser": true
-    },
-    "rules": {
-      "@wordpress/no-unsafe-wp-apis": "off"
     }
   }
 }
