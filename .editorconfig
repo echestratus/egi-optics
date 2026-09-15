@@ -1,0 +1,30 @@
+# EditorConfig - https://editorconfig.org
+# Follows WordPress Coding Standards (tabs for PHP/JS/CSS/HTML templates).
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = tab
+
+[*.{yml,yaml,json,md,mdc}]
+indent_style = space
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.{sh,bash}]
+indent_style = tab
+
+[{package.json,package-lock.json,composer.json,composer.lock}]
+indent_style = space
+indent_size = 2
+
+[composer.json]
+indent_size = 4
+
+[Makefile]
+indent_style = tab

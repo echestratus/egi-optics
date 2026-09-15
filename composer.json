@@ -1,0 +1,72 @@
+{
+    "name": "egi-optics/egi-optics-website",
+    "description": "PT EGI Optik Indonesia corporate website (egi-optics.com): custom WordPress block theme, site plugin and tooling.",
+    "type": "project",
+    "license": "GPL-2.0-or-later",
+    "homepage": "https://egi-optics.com",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org",
+            "only": [
+                "wpackagist-plugin/*",
+                "wpackagist-theme/*"
+            ]
+        }
+    ],
+    "require": {
+        "php": ">=8.2",
+        "composer/installers": "^2.3",
+        "wpackagist-plugin/litespeed-cache": "^7.9",
+        "wpackagist-plugin/seo-by-rank-math": "^1.0",
+        "wpackagist-plugin/better-wp-security": "^10.0",
+        "wpackagist-plugin/sureforms": "^2.12",
+        "wpackagist-plugin/suremails": "^2.0"
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+        "wp-coding-standards/wpcs": "^3.1",
+        "phpcompatibility/phpcompatibility-wp": "^2.1",
+        "php-parallel-lint/php-parallel-lint": "^1.4",
+        "php-stubs/wordpress-stubs": "^6.9"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        },
+        "optimize-autoloader": true,
+        "sort-packages": true,
+        "platform": {
+            "php": "8.2"
+        }
+    },
+    "extra": {
+        "installer-paths": {
+            "wp-content/plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ],
+            "wp-content/themes/{$name}/": [
+                "type:wordpress-theme"
+            ],
+            "wp-content/mu-plugins/{$name}/": [
+                "type:wordpress-muplugin"
+            ]
+        }
+    },
+    "scripts": {
+        "lint": [
+            "@lint:syntax",
+            "@lint:phpcs"
+        ],
+        "lint:syntax": "parallel-lint --exclude vendor --exclude node_modules --exclude .wp-env wp-content/themes/egi-optics wp-content/plugins/egi-optics-core scripts",
+        "lint:phpcs": "phpcs --report=full",
+        "lint:fix": "phpcbf || true",
+        "compat": "phpcs --standard=PHPCompatibilityWP --runtime-set testVersion 8.2- --extensions=php wp-content/themes/egi-optics wp-content/plugins/egi-optics-core"
+    },
+    "scripts-descriptions": {
+        "lint": "Run PHP syntax check and PHPCS (WordPress Coding Standards).",
+        "lint:fix": "Auto-fix PHPCS violations where possible.",
+        "compat": "Check PHP 8.2+ compatibility of theme and plugin."
+    }
+}

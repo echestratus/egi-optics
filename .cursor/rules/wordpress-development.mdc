@@ -1,0 +1,44 @@
+---
+description: WordPress coding standards and block-theme conventions for the egi-optics theme and egi-optics-core plugin
+globs: wp-content/**/*.php,wp-content/**/*.css,wp-content/**/*.js,wp-content/**/*.json,wp-content/**/*.html
+alwaysApply: false
+---
+
+# WordPress Development Conventions
+
+## PHP (WordPress Coding Standards)
+
+- Tabs, Yoda conditions, spaces inside parentheses, snake_case functions prefixed `egi_optics_` (theme) or `egi_core_` (plugin); constants `EGI_OPTICS_*`.
+- Escape on output, sanitize on input, verify nonces and capabilities on every write:
+
+```php
+// ❌ BAD
+echo '<a href="' . $url . '">' . $title . '</a>';
+
+// ✅ GOOD
+printf( '<a href="%s">%s</a>', esc_url( $url ), esc_html( $title ) );
+```
+
+- Translatable strings use text domain `egi-optics` (theme) / `egi-optics-core` (plugin). Never concatenate translatable strings; use `sprintf()` with placeholders.
+- Hook everything: no side effects at file load except `add_action`/`add_filter`; guard files with `defined( 'ABSPATH' ) || exit;`.
+- Use `wp_enqueue_*` with versions from `wp_get_theme()->get( 'Version' )` / plugin constant, never inline `<script src>`.
+- Data models live in the plugin (CPT `egi_product`, taxonomy `product_category`, meta), presentation lives in the theme. The theme must degrade gracefully if the plugin is inactive.
+
+## Block theme (`wp-content/themes/egi-optics`)
+
+- Design tokens only in `theme.json` (palette, spacing, typography, custom properties). CSS uses `var(--wp--preset--*)`, never hard-coded brand colours.
+- Templates (`templates/*.html`) and parts (`parts/*.html`) contain block markup only; reusable sections are `patterns/*.php` with a header (Title, Slug `egi-optics/<name>`, Categories) and all strings wrapped in `esc_html__()`.
+- Fonts are self-hosted from `assets/fonts` via `settings.typography.fontFamilies[].fontFace` (no Google Fonts requests).
+- Block styles are registered in `inc/block-styles.php` and their CSS loaded with `wp_enqueue_block_style()` so it only ships when the block is used.
+- Every image needs meaningful `alt`; decorative images use `alt=""`. Videos use `preload="metadata"` and a poster.
+- Motion respects `@media (prefers-reduced-motion: reduce)`.
+
+## CSS / JS
+
+- Plain CSS with logical properties and fluid `clamp()` sizes; BEM-ish class names `egi-<component>__<part>`. No frameworks.
+- Vanilla JS modules, progressively enhanced (site works without JS). Lint with `npm run lint`.
+
+## Performance and SEO
+
+- Keep third-party requests at zero; images served as WebP by LiteSpeed; lazy-load below the fold (`loading="lazy"`), eager-load the hero image with `fetchpriority="high"`.
+- Headings are hierarchical (one `h1` per page). Product and news pages must expose `excerpt` for Rank Math descriptions.

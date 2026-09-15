@@ -1,0 +1,49 @@
+---
+description: SDLC, environments and CI/CD rules for the egi-optics WordPress site (local wp-env, quality gates, backup-first deploys to Hostinger, updates, rollback)
+alwaysApply: true
+---
+
+# WordPress SDLC and CI/CD
+
+## Environments
+
+| Env        | Where                                            | Purpose                              |
+| ---------- | ------------------------------------------------ | ------------------------------------ |
+| local      | `wp-env` (Docker), `npm run env:start`, :8888    | All development and visual QA        |
+| production | Hostinger `~/domains/egi-optics.com/public_html` | Live site; changed only by deploy job or reviewed WP-CLI scripts |
+
+There is no staging yet: production deploys are therefore **backup-first** and every change must be
+verified locally (screenshots desktop + mobile) before the PR is opened.
+
+## Development loop
+
+1. `composer install && npm install`, then `npm run env:start` (theme + plugin are bind-mounted).
+2. Work only inside `wp-content/themes/egi-optics`, `wp-content/plugins/egi-optics-core`, `scripts/`.
+3. Before pushing: `npm run lint` (css, js, php) and `npm run validate` (theme.json / block.json).
+4. Never edit files on the server by hand or via wp-admin theme/plugin editors (`DISALLOW_FILE_EDIT` is on).
+
+## CI (`.github/workflows/ci.yml`) - required to merge
+
+PHP syntax (parallel-lint) -> PHPCS WordPress-Extra + Docs + PHPCompatibilityWP 8.2 -> stylelint -> eslint -> JSON validation.
+A failing check blocks the merge; do not disable rules to get green, fix the code or add a justified `// phpcs:ignore <sniff> -- reason`.
+
+## CD (`.github/workflows/deploy.yml`) - on push to `main`
+
+1. `scripts/server/backup.sh` over SSH: `mysqldump | gzip` + tar of the current theme/plugin into `~/backups/egi-optics/<timestamp>/` (keeps last 10).
+2. `rsync -az --delete` **only** `wp-content/themes/egi-optics/` and `wp-content/plugins/egi-optics-core/` (dev files excluded via `.rsync-exclude`).
+3. `scripts/server/post-deploy.sh`: activate theme/plugin idempotently, `wp rewrite flush`, `wp cache flush`, `wp litespeed-purge all`.
+4. Health check: HTTP 200 on `/`, `/products/`, `/news/`; the job fails loudly otherwise.
+
+Secrets (`HOSTINGER_SSH_KEY`, `HOSTINGER_HOST`, `HOSTINGER_PORT`, `HOSTINGER_USER`, `HOSTINGER_PATH`) live only in GitHub Actions secrets.
+
+## Updates and maintenance
+
+- WordPress core, third-party plugins: test the update locally in `wp-env` first, then apply on the server with WP-CLI (`wp plugin update <slug>`) after a backup. Never patch vendor code; wrap behaviour with hooks in `egi-optics-core`.
+- Keep the plugin count minimal; every new plugin needs a justification in the PR and must be free/GPL and actively maintained.
+- Security baseline: HTTPS-only URLs, `DISALLOW_FILE_EDIT`, XML-RPC disabled, no file editing in wp-admin, least-privilege users, Solid Security kept active.
+
+## Rollback
+
+Re-run the deploy workflow from the previous tag (`workflow_dispatch` with `ref`), or restore the
+matching backup with the commands in `docs/DEPLOYMENT_RUNBOOK.md`. Database restores are a last
+resort and must be announced first.

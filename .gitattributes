@@ -1,0 +1,27 @@
+# Normalise line endings to LF in the repository (Windows contributors get LF too).
+* text=auto eol=lf
+
+# Shell scripts must stay LF and executable semantics matter on the server.
+*.sh text eol=lf
+
+# Binary assets
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.avif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.eot binary
+*.pdf binary
+*.mp4 binary
+*.webm binary
+*.zip binary
+
+# Keep GitHub language stats meaningful
+*.html linguist-detectable=true
+*.css linguist-detectable=true

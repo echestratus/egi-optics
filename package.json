@@ -1,0 +1,56 @@
+{
+  "name": "egi-optics-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PT EGI Optik Indonesia website: WordPress block theme, site plugin and tooling.",
+  "homepage": "https://egi-optics.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/echestratus/egi-optics.git"
+  },
+  "license": "GPL-2.0-or-later",
+  "engines": {
+    "node": ">=20.19.0",
+    "npm": ">=10"
+  },
+  "scripts": {
+    "env:start": "wp-env start",
+    "env:stop": "wp-env stop",
+    "env:destroy": "wp-env destroy",
+    "env:clean": "wp-env clean all",
+    "env:cli": "wp-env run cli wp",
+    "env:seed": "wp-env run cli wp eval-file egi-scripts/content/seed-local.php",
+    "build": "npm run lint && npm run validate",
+    "validate": "node scripts/dev/validate-json.mjs",
+    "lint": "npm run lint:css && npm run lint:js && npm run lint:php",
+    "lint:css": "wp-scripts lint-style \"wp-content/themes/egi-optics/**/*.css\" \"wp-content/plugins/egi-optics-core/**/*.css\"",
+    "lint:js": "wp-scripts lint-js wp-content/themes/egi-optics/assets/js wp-content/plugins/egi-optics-core/assets",
+    "lint:php": "composer lint",
+    "lint:pkg": "wp-scripts lint-pkg-json",
+    "format": "wp-scripts format wp-content/themes/egi-optics/assets wp-content/plugins/egi-optics-core/assets",
+    "format:php": "composer lint:fix"
+  },
+  "devDependencies": {
+    "@wordpress/env": "^11.15.0",
+    "@wordpress/scripts": "^35.0.0"
+  },
+  "prettier": "@wordpress/prettier-config",
+  "stylelint": {
+    "extends": "@wordpress/stylelint-config",
+    "rules": {
+      "no-descending-specificity": null,
+      "selector-class-pattern": null,
+      "font-weight-notation": null,
+      "declaration-property-unit-allowed-list": null
+    }
+  },
+  "eslintConfig": {
+    "extends": "plugin:@wordpress/eslint-plugin/recommended",
+    "env": {
+      "browser": true
+    },
+    "rules": {
+      "@wordpress/no-unsafe-wp-apis": "off"
+    }
+  }
+}

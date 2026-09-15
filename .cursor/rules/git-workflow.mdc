@@ -1,0 +1,50 @@
+---
+description: Git workflow for the egi-optics WordPress project (branching, commits, PRs, releases, what must never be committed)
+alwaysApply: true
+---
+
+# Git Workflow (WordPress)
+
+`main` is production and must always be deployable. Every merge to `main` triggers the deploy
+workflow, so nothing reaches `main` without a pull request and green CI.
+
+## Branching (GitHub Flow, short-lived branches)
+
+- Branch from `main`: `feat/<topic>`, `fix/<topic>`, `chore/<topic>`, `content/<topic>` (content scripts), `hotfix/<topic>`.
+- One concern per branch; keep branches < 1 week old; rebase on `main` before opening the PR.
+- Never push directly to `main`; never force-push shared branches.
+
+## Commits: Conventional Commits
+
+```
+feat(theme): add product spec table block style
+fix(core): redirect legacy /laser-gun/ URL to /products/laser-weapon-system/
+content(news): add Paspampres laser gun demonstration article script
+chore(ci): cache composer downloads
+```
+
+Types: `feat`, `fix`, `content`, `chore`, `docs`, `refactor`, `perf`, `style`, `test`, `ci`.
+Scopes: `theme`, `core` (plugin), `scripts`, `ci`, `docs`, `deps`. Use `!` or `BREAKING CHANGE:` for anything that changes URLs, CPT slugs or option names.
+
+## Pull requests
+
+- Fill the PR template; include before/after screenshots for any visual change (desktop + mobile).
+- CI must pass: `php -l`, PHPCS (WordPress-Extra/Docs), stylelint, eslint, JSON validation.
+- Squash-merge with a Conventional Commit title. Delete the branch after merge.
+
+## Releases
+
+- Tag releases on `main` as `vMAJOR.MINOR.PATCH` and add a `CHANGELOG.md` entry (Keep a Changelog format).
+- Theme `style.css` `Version:` and plugin header `Version:` must match the tag (bump in the release PR).
+
+## Never commit
+
+WordPress core, third-party plugins/themes (declare in `composer.json` instead), `wp-content/uploads`,
+database dumps, `wp-config.php`, salts/keys, `.env`, SSH keys, internal documents (e.g. the `assets/`
+folder). If a secret is ever committed, rotate it immediately and rewrite history before merging.
+
+## Content vs code
+
+Content (posts, products, pages, menus, options) lives in the database and is not versioned.
+Structural content changes are written as idempotent WP-CLI scripts in `scripts/content/` so they can
+be reviewed, re-run and audited. See `docs/GIT_WORKFLOW.md` for the long form.

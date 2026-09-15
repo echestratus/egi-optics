@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<ruleset name="EGI Optics WordPress Coding Standards">
+	<description>PHPCS ruleset for the egi-optics theme, the egi-optics-core plugin and project scripts.</description>
+
+	<!-- What to scan -->
+	<file>wp-content/themes/egi-optics</file>
+	<file>wp-content/plugins/egi-optics-core</file>
+	<file>scripts</file>
+
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/build/*</exclude-pattern>
+	<exclude-pattern>*/.wp-env/*</exclude-pattern>
+	<exclude-pattern>*.min.js</exclude-pattern>
+	<exclude-pattern>*.min.css</exclude-pattern>
+
+	<!-- How to scan -->
+	<arg value="sp"/>
+	<arg name="basepath" value="./"/>
+	<arg name="colors"/>
+	<arg name="extensions" value="php"/>
+	<arg name="parallel" value="8"/>
+	<arg name="cache" value=".phpcs-cache"/>
+
+	<!-- Rules: WordPress Coding Standards -->
+	<rule ref="WordPress-Extra">
+		<!-- Block theme templates/patterns legitimately echo pattern markup; prefer per-line justification. -->
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+		<exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
+		<!-- Short array syntax is fine on PHP 8.2+ -->
+		<exclude name="Universal.Arrays.DisallowShortArraySyntax"/>
+		<exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
+	</rule>
+	<rule ref="WordPress-Docs"/>
+
+	<!-- Project prefixes for globals, hooks, options -->
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="egi_optics"/>
+				<element value="egi"/>
+				<element value="EGI_OPTICS"/>
+				<element value="EGI"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!-- Text domains -->
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="egi-optics"/>
+				<element value="egi-optics-core"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!-- Minimum supported WordPress version (deprecation checks) -->
+	<config name="minimum_wp_version" value="6.7"/>
+
+	<!-- PHP compatibility: production runs PHP 8.2 -->
+	<config name="testVersion" value="8.2-"/>
+	<rule ref="PHPCompatibilityWP"/>
+
+	<!-- CLI content scripts run via `wp eval-file` and may use direct DB / filesystem calls deliberately. -->
+	<rule ref="WordPress.DB.DirectDatabaseQuery">
+		<exclude-pattern>scripts/*</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.WP.AlternativeFunctions">
+		<exclude-pattern>scripts/*</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.Security.EscapeOutput">
+		<exclude-pattern>scripts/*</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.PHP.DevelopmentFunctions">
+		<exclude-pattern>scripts/*</exclude-pattern>
+	</rule>
+	<rule ref="Squiz.PHP.DiscouragedFunctions">
+		<exclude-pattern>scripts/*</exclude-pattern>
+	</rule>
+</ruleset>

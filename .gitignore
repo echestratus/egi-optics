@@ -82,7 +82,6 @@ desktop.ini
 !.vscode/extensions.json
 !.vscode/settings.json
 
-# --- Cursor (keep rules & plans; ignore local state)
+# --- Cursor (keep rules; ignore local state)
 .cursor/*
 !.cursor/rules/
-!.cursor/plans/
