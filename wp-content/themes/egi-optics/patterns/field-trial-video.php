@@ -20,8 +20,8 @@
 			<!-- wp:paragraph {"className":"egi-label egi-pulse"} -->
 			<p class="egi-label egi-pulse"><?php echo esc_html__( 'Field trial footage', 'egi-optics' ); ?></p>
 			<!-- /wp:paragraph -->
-			<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|3xl"}}} -->
-			<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--3xl)"><?php echo esc_html__( 'Live-fire demonstration', 'egi-optics' ); ?></h3>
+			<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|xxxl"}}} -->
+			<h3 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--xxxl)"><?php echo esc_html__( 'Live-fire demonstration', 'egi-optics' ); ?></h3>
 			<!-- /wp:heading -->
 		</div>
 		<!-- /wp:group -->

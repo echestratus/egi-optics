@@ -37,7 +37,7 @@
 
 	<!-- wp:query {"queryId":10,"query":{"perPage":9,"pages":0,"offset":0,"postType":"egi_product","order":"asc","orderBy":"menu_order","author":"","search":"","exclude":[],"sticky":"","inherit":false},"align":"wide","className":"egi-products-query"} -->
 	<div class="wp-block-query alignwide egi-products-query">
-		<!-- wp:post-template {"className":"egi-reveal-stagger","style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"grid","columnCount":3}} -->
+		<!-- wp:post-template {"className":"egi-reveal-stagger","style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"grid","minimumColumnWidth":"20rem"}} -->
 			<!-- wp:group {"className":"egi-product-card","layout":{"type":"default"}} -->
 			<div class="wp-block-group egi-product-card">
 				<!-- wp:group {"className":"egi-product-card__media","layout":{"type":"default"}} -->

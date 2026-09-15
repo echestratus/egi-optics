@@ -20,8 +20,11 @@
 	);
 
 	if ( revealTargets.length ) {
-		if ( reduceMotion || ! ( 'IntersectionObserver' in window ) ) {
+		const revealAll = () =>
 			revealTargets.forEach( ( el ) => el.classList.add( 'is-visible' ) );
+
+		if ( reduceMotion || ! ( 'IntersectionObserver' in window ) ) {
+			revealAll();
 		} else {
 			const io = new IntersectionObserver(
 				( entries, observer ) => {
@@ -35,6 +38,9 @@
 				{ rootMargin: '0px 0px -8% 0px', threshold: 0.08 }
 			);
 			revealTargets.forEach( ( el ) => io.observe( el ) );
+			// Safety net: never leave content hidden (print, unusual viewports, throttled tabs).
+			window.setTimeout( revealAll, 4000 );
+			window.addEventListener( 'beforeprint', revealAll );
 		}
 	}
 

@@ -41,8 +41,8 @@
 			<!-- wp:paragraph {"className":"egi-label"} -->
 			<p class="egi-label"><?php echo esc_html__( 'Send a message', 'egi-optics' ); ?></p>
 			<!-- /wp:paragraph -->
-			<!-- wp:heading {"style":{"typography":{"fontSize":"var:preset|font-size|3xl"}}} -->
-			<h2 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--3xl)"><?php echo esc_html__( 'Tell us about your requirement.', 'egi-optics' ); ?></h2>
+			<!-- wp:heading {"style":{"typography":{"fontSize":"var:preset|font-size|xxxl"}}} -->
+			<h2 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--xxxl)"><?php echo esc_html__( 'Tell us about your requirement.', 'egi-optics' ); ?></h2>
 			<!-- /wp:heading -->
 			<!-- wp:group {"className":"egi-form-wrap is-style-egi-panel","layout":{"type":"constrained"}} -->
 			<div class="wp-block-group egi-form-wrap is-style-egi-panel">
@@ -58,8 +58,8 @@
 			<!-- wp:paragraph {"className":"egi-label"} -->
 			<p class="egi-label"><?php echo esc_html__( 'Visit us', 'egi-optics' ); ?></p>
 			<!-- /wp:paragraph -->
-			<!-- wp:heading {"style":{"typography":{"fontSize":"var:preset|font-size|3xl"}}} -->
-			<h2 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--3xl)"><?php echo esc_html__( 'Kebayoran Baru, South Jakarta.', 'egi-optics' ); ?></h2>
+			<!-- wp:heading {"style":{"typography":{"fontSize":"var:preset|font-size|xxxl"}}} -->
+			<h2 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--xxxl)"><?php echo esc_html__( 'Kebayoran Baru, South Jakarta.', 'egi-optics' ); ?></h2>
 			<!-- /wp:heading -->
 			<!-- wp:html -->
 			<div class="egi-map"><iframe title="<?php echo esc_attr__( 'Map showing the EGI Optik Indonesia office at Oscorp Building, Jl. Dharmawangsa Raya No. 16, Jakarta', 'egi-optics' ); ?>" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Oscorp+Building+Jl.+Dharmawangsa+Raya+No.16+Kebayoran+Baru+Jakarta&amp;output=embed"></iframe></div>

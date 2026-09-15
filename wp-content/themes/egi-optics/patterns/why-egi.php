@@ -28,7 +28,7 @@ $egi_optics_items = array(
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"wide","className":"egi-reveal-stagger","layout":{"type":"grid","minimumColumnWidth":"20rem"},"style":{"spacing":{"blockGap":"var:preset|spacing|40"}}} -->
+	<!-- wp:group {"align":"wide","className":"egi-reveal-stagger","layout":{"type":"grid","minimumColumnWidth":"22rem"},"style":{"spacing":{"blockGap":"var:preset|spacing|40"}}} -->
 	<div class="wp-block-group alignwide egi-reveal-stagger">
 		<?php foreach ( $egi_optics_items as $egi_optics_index => $egi_optics_item ) : ?>
 		<!-- wp:group {"className":"is-style-egi-panel egi-card--accent-top","layout":{"type":"constrained"}} -->
@@ -41,8 +41,8 @@ $egi_optics_items = array(
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:group -->
-			<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|2xl"},"spacing":{"margin":{"top":"var:preset|spacing|50"}}}} -->
-			<h3 class="wp-block-heading" style="margin-top:var(--wp--preset--spacing--50);font-size:var(--wp--preset--font-size--2xl)"><?php echo esc_html( $egi_optics_item[1] ); ?></h3>
+			<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"var:preset|font-size|xxl"},"spacing":{"margin":{"top":"var:preset|spacing|50"}}}} -->
+			<h3 class="wp-block-heading" style="margin-top:var(--wp--preset--spacing--50);font-size:var(--wp--preset--font-size--xxl)"><?php echo esc_html( $egi_optics_item[1] ); ?></h3>
 			<!-- /wp:heading -->
 			<!-- wp:paragraph -->
 			<p><?php echo esc_html( $egi_optics_item[2] ); ?></p>

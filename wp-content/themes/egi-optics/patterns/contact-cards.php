@@ -10,7 +10,7 @@
  */
 
 ?>
-<!-- wp:group {"align":"wide","className":"egi-reveal-stagger","layout":{"type":"grid","minimumColumnWidth":"18rem"},"style":{"spacing":{"blockGap":"var:preset|spacing|40"}}} -->
+<!-- wp:group {"align":"wide","className":"egi-reveal-stagger","layout":{"type":"grid","minimumColumnWidth":"22rem"},"style":{"spacing":{"blockGap":"var:preset|spacing|40"}}} -->
 <div class="wp-block-group alignwide egi-reveal-stagger">
 	<!-- wp:group {"className":"egi-contact-card","layout":{"type":"constrained"}} -->
 	<div class="wp-block-group egi-contact-card">

@@ -11,10 +11,10 @@
  */
 
 $egi_optics_docs = array(
-	array( __( 'Night Vision Monocular NV/M-19 Gen 4', 'egi-optics' ), 'PDF Â· 221 KB' ),
-	array( __( 'Thermal Vision Sight TVD-35', 'egi-optics' ), 'PDF Â· 141 KB' ),
-	array( __( 'Laser Point LAD-21T', 'egi-optics' ), 'PDF Â· 125 KB' ),
-	array( __( 'Laser Weapon System, Fenix Counter-UAV Complex and Remote Control Unit', 'egi-optics' ), 'PDF Â· 6.5 MB' ),
+	array( __( 'Night Vision Monocular NV/M-19 Gen 4', 'egi-optics' ), 'PDF · 221 KB' ),
+	array( __( 'Thermal Vision Sight TVD-35', 'egi-optics' ), 'PDF · 141 KB' ),
+	array( __( 'Laser Point LAD-21T', 'egi-optics' ), 'PDF · 125 KB' ),
+	array( __( 'Laser Weapon System, Fenix Counter-UAV Complex and Remote Control Unit', 'egi-optics' ), 'PDF · 6.5 MB' ),
 );
 ?>
 <!-- wp:group {"align":"full","className":"egi-line-top","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"constrained"}} -->
@@ -33,7 +33,7 @@ $egi_optics_docs = array(
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"wide","className":"egi-reveal-stagger","layout":{"type":"grid","minimumColumnWidth":"24rem"},"style":{"spacing":{"blockGap":"var:preset|spacing|40"}}} -->
+	<!-- wp:group {"align":"wide","className":"egi-reveal-stagger","layout":{"type":"grid","minimumColumnWidth":"30rem"},"style":{"spacing":{"blockGap":"var:preset|spacing|40"}}} -->
 	<div class="wp-block-group alignwide egi-reveal-stagger">
 		<?php foreach ( $egi_optics_docs as $egi_optics_doc ) : ?>
 		<!-- wp:group {"className":"egi-download","layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->

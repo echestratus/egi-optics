@@ -31,7 +31,7 @@ $egi_optics_items = array(
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"wide","className":"egi-reveal-stagger","layout":{"type":"grid","minimumColumnWidth":"19rem"},"style":{"spacing":{"blockGap":"var:preset|spacing|40"}}} -->
+	<!-- wp:group {"align":"wide","className":"egi-reveal-stagger","layout":{"type":"grid","minimumColumnWidth":"22rem"},"style":{"spacing":{"blockGap":"var:preset|spacing|40"}}} -->
 	<div class="wp-block-group alignwide egi-reveal-stagger">
 		<?php foreach ( $egi_optics_items as $egi_optics_item ) : ?>
 		<!-- wp:group {"className":"is-style-egi-card","layout":{"type":"constrained"}} -->

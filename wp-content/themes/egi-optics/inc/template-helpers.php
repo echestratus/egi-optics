@@ -194,8 +194,10 @@ add_filter( 'render_block_core/button', 'egi_optics_external_links', 10, 2 );
  * @return array
  */
 function egi_optics_related_products_query( $query, $block ) {
-	$class = isset( $block->parsed_block['attrs']['className'] ) ? $block->parsed_block['attrs']['className'] : '';
-	if ( false !== strpos( $class, 'egi-related-products' ) && is_singular( 'egi_product' ) ) {
+	// The filter runs for the inner post-template block; the Query block passes queryId via context.
+	// queryId 40 is reserved for the "Related products" loop in templates/single-egi_product.html.
+	$query_id = isset( $block->context['queryId'] ) ? (int) $block->context['queryId'] : 0;
+	if ( 40 === $query_id && is_singular( 'egi_product' ) ) {
 		$query['post__not_in'] = array( get_queried_object_id() );
 	}
 	return $query;

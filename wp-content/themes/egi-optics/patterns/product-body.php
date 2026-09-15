@@ -21,8 +21,8 @@
 			<!-- wp:paragraph {"className":"egi-label"} -->
 			<p class="egi-label"><?php echo esc_html__( 'Overview', 'egi-optics' ); ?></p>
 			<!-- /wp:paragraph -->
-			<!-- wp:heading {"style":{"typography":{"fontSize":"var:preset|font-size|3xl"}}} -->
-			<h2 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--3xl)"><?php echo esc_html__( 'What the system does and who it is for.', 'egi-optics' ); ?></h2>
+			<!-- wp:heading {"style":{"typography":{"fontSize":"var:preset|font-size|xxxl"}}} -->
+			<h2 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--xxxl)"><?php echo esc_html__( 'What the system does and who it is for.', 'egi-optics' ); ?></h2>
 			<!-- /wp:heading -->
 			<!-- wp:paragraph {"className":"egi-lead"} -->
 			<p class="egi-lead"><?php echo esc_html__( 'Two or three sentences describing the platform, its core capability and the operational problem it solves.', 'egi-optics' ); ?></p>
@@ -95,8 +95,8 @@
 				<!-- wp:table {"className":"is-style-egi-spec"} -->
 				<figure class="wp-block-table is-style-egi-spec"><table><tbody>
 					<tr><td><?php echo esc_html__( 'Wavelength', 'egi-optics' ); ?></td><td>1080 nm</td></tr>
-					<tr><td><?php echo esc_html__( 'Output power', 'egi-optics' ); ?></td><td>0.75 â€“ 2.0 kW CW</td></tr>
-					<tr><td><?php echo esc_html__( 'Effective range', 'egi-optics' ); ?></td><td>30 â€“ 500 m</td></tr>
+					<tr><td><?php echo esc_html__( 'Output power', 'egi-optics' ); ?></td><td>0.75 – 2.0 kW CW</td></tr>
+					<tr><td><?php echo esc_html__( 'Effective range', 'egi-optics' ); ?></td><td>30 – 500 m</td></tr>
 				</tbody></table></figure>
 				<!-- /wp:table -->
 			</div>
@@ -112,7 +112,7 @@
 				<figure class="wp-block-table is-style-egi-spec"><table><tbody>
 					<tr><td><?php echo esc_html__( 'Power supply', 'egi-optics' ); ?></td><td>Backpack, 7.5 kW</td></tr>
 					<tr><td><?php echo esc_html__( 'Cooling', 'egi-optics' ); ?></td><td>Air-cooled</td></tr>
-					<tr><td><?php echo esc_html__( 'Operating temperature', 'egi-optics' ); ?></td><td>-20 Â°C â€¦ +50 Â°C</td></tr>
+					<tr><td><?php echo esc_html__( 'Operating temperature', 'egi-optics' ); ?></td><td>-20 °C … +50 °C</td></tr>
 				</tbody></table></figure>
 				<!-- /wp:table -->
 			</div>

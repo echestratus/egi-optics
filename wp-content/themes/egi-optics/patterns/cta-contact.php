@@ -17,8 +17,8 @@
 		<!-- wp:paragraph {"align":"center","className":"egi-label egi-label--dot"} -->
 		<p class="has-text-align-center egi-label egi-label--dot"><?php echo esc_html__( 'Let\'s collaborate', 'egi-optics' ); ?></p>
 		<!-- /wp:paragraph -->
-		<!-- wp:heading {"textAlign":"center","className":"egi-balance","style":{"typography":{"fontSize":"var:preset|font-size|4xl"}}} -->
-		<h2 class="wp-block-heading has-text-align-center egi-balance" style="font-size:var(--wp--preset--font-size--4xl)"><?php echo esc_html__( 'Ready to see the systems in action?', 'egi-optics' ); ?></h2>
+		<!-- wp:heading {"textAlign":"center","className":"egi-balance","style":{"typography":{"fontSize":"var:preset|font-size|display"}}} -->
+		<h2 class="wp-block-heading has-text-align-center egi-balance" style="font-size:var(--wp--preset--font-size--display)"><?php echo esc_html__( 'Ready to see the systems in action?', 'egi-optics' ); ?></h2>
 		<!-- /wp:heading -->
 		<!-- wp:paragraph {"align":"center","className":"egi-lead"} -->
 		<p class="has-text-align-center egi-lead"><?php echo esc_html__( 'We arrange live demonstrations for defense and security agencies, provide technical briefings and support procurement teams from specification to delivery.', 'egi-optics' ); ?></p>

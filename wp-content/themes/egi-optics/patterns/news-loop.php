@@ -14,7 +14,7 @@
 ?>
 <!-- wp:query {"queryId":20,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"align":"wide","className":"egi-news-query"} -->
 <div class="wp-block-query alignwide egi-news-query">
-	<!-- wp:post-template {"className":"egi-news-grid egi-news-grid--featured","style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"grid","columnCount":3}} -->
+	<!-- wp:post-template {"className":"egi-news-grid egi-news-grid--featured","style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"grid","minimumColumnWidth":"20rem"}} -->
 		<!-- wp:group {"className":"egi-news-card","layout":{"type":"default"}} -->
 		<div class="wp-block-group egi-news-card">
 			<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9","sizeSlug":"egi-card"} /-->

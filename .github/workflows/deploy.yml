@@ -1,0 +1,109 @@
+name: Deploy to production
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      activate_theme:
+        description: "Activate the egi-optics theme after deploy (1) or only install it (0). Leave empty to use the ACTIVATE_THEME repository variable."
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+# Never run two deploys at once; queue instead of cancelling (a half-finished rsync is worse than a wait).
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  ci:
+    name: Quality gates
+    uses: ./.github/workflows/ci.yml
+
+  deploy:
+    name: Backup, rsync, post-deploy, health check
+    needs: ci
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://egi-optics.com
+    env:
+      SSH_HOST: ${{ secrets.HOSTINGER_HOST }}
+      SSH_PORT: ${{ secrets.HOSTINGER_PORT }}
+      SSH_USER: ${{ secrets.HOSTINGER_USER }}
+      SITE_PATH: ${{ secrets.HOSTINGER_PATH }}
+      ACTIVATE_THEME: ${{ inputs.activate_theme != '' && inputs.activate_theme || vars.ACTIVATE_THEME || '0' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "${{ secrets.HOSTINGER_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          printf '%s\n' "${{ secrets.HOSTINGER_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+          cat > ~/.ssh/config <<EOF
+          Host hostinger
+            HostName $SSH_HOST
+            Port $SSH_PORT
+            User $SSH_USER
+            IdentityFile ~/.ssh/deploy_key
+            IdentitiesOnly yes
+            StrictHostKeyChecking yes
+            ServerAliveInterval 30
+          EOF
+          ssh hostinger 'echo "connected as $(whoami) on $(hostname)"'
+
+      - name: Upload server and content scripts
+        run: |
+          rsync -az --delete --chmod=Du=rwx,Dgo=,Fu=rw,Fgo= \
+            --exclude 'dev/' \
+            scripts/ hostinger:~/egi-scripts/
+
+      - name: Backup database and current code
+        run: |
+          ssh hostinger "SITE_PATH='$SITE_PATH' GITHUB_SHA='$GITHUB_SHA' bash ~/egi-scripts/server/backup.sh deploy"
+
+      - name: Sync theme
+        run: |
+          rsync -az --delete --exclude-from=.rsync-exclude \
+            wp-content/themes/egi-optics/ "hostinger:$SITE_PATH/wp-content/themes/egi-optics/"
+
+      - name: Sync plugin
+        run: |
+          rsync -az --delete --exclude-from=.rsync-exclude \
+            wp-content/plugins/egi-optics-core/ "hostinger:$SITE_PATH/wp-content/plugins/egi-optics-core/"
+
+      - name: Post-deploy (activate, flush rewrites and caches)
+        run: |
+          ssh hostinger "SITE_PATH='$SITE_PATH' ACTIVATE_THEME='$ACTIVATE_THEME' bash ~/egi-scripts/server/post-deploy.sh"
+
+      - name: Health check
+        run: |
+          set -euo pipefail
+          check() {
+            code=$(curl -sS -o /dev/null -w '%{http_code}' -L --max-time 30 -H 'Cache-Control: no-cache' "https://egi-optics.com$1")
+            echo "GET $1 -> $code"
+            [ "$code" = "200" ] || { echo "::error::Health check failed for $1 ($code)"; exit 1; }
+          }
+          check /
+          if [ "$ACTIVATE_THEME" = "1" ]; then
+            check /products/
+            check /news/
+            check /about/
+            check /contact/
+          fi
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "### Deploy ${{ job.status }}"
+            echo "- Commit: \`${GITHUB_SHA::7}\`"
+            echo "- Theme activation: \`$ACTIVATE_THEME\`"
+            echo "- Site: https://egi-optics.com"
+          } >> "$GITHUB_STEP_SUMMARY"

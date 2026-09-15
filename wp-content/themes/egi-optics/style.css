@@ -274,9 +274,22 @@ video {
 }
 
 .egi-header .wp-block-site-logo img {
-	height: 44px;
+	height: 52px;
 	width: auto;
+	max-width: none;
 	filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.25));
+}
+
+/* The logo carries the wordmark; only show the text title when no logo is set. */
+.egi-header .wp-block-site-logo + .wp-block-site-title {
+	display: none;
+}
+
+@media (max-width: 781px) {
+
+	.egi-header .wp-block-site-logo img {
+		height: 40px;
+	}
 }
 
 .egi-header .wp-block-navigation .wp-block-navigation-item__content {
@@ -344,7 +357,7 @@ video {
 
 .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content {
 	font-family: var(--wp--preset--font-family--heading);
-	font-size: var(--wp--preset--font-size--2xl);
+	font-size: var(--wp--preset--font-size--xxl);
 	padding: 0.5rem 0;
 }
 
@@ -402,7 +415,7 @@ video {
 }
 
 .egi-hero__title {
-	font-size: var(--wp--preset--font-size--5xl);
+	font-size: var(--wp--preset--font-size--hero);
 	line-height: 1.02;
 	max-width: 14ch;
 }
@@ -462,6 +475,25 @@ video {
 .egi-media-frame video {
 	position: relative;
 	display: block;
+}
+
+/* Light "product plate": product renders are photographed on white, so they sit on a light
+   engineering plate inside the dark UI (cards, product hero, galleries). */
+.egi-plate,
+.egi-plate.egi-media-frame,
+.wp-block-image.is-style-egi-frame.egi-plate img {
+	background: linear-gradient(160deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.egi-plate::before,
+.egi-media-frame.egi-plate::before {
+	background-image:
+		linear-gradient(to right, rgba(100, 116, 139, 0.18) 1px, transparent 1px),
+		linear-gradient(to bottom, rgba(100, 116, 139, 0.18) 1px, transparent 1px);
+}
+
+.egi-plate img {
+	mix-blend-mode: multiply;
 }
 
 /* ------------------------------------------------------------------
@@ -591,7 +623,8 @@ video {
 
 .egi-stat__value {
 	font-family: var(--wp--preset--font-family--heading);
-	font-size: var(--wp--preset--font-size--3xl);
+	font-size: var(--wp--preset--font-size--xxl);
+	white-space: nowrap;
 	font-weight: 600;
 	letter-spacing: -0.02em;
 	color: var(--egi-accent);
@@ -895,7 +928,7 @@ video {
 
 .egi-product-card__media {
 	position: relative;
-	background: var(--wp--preset--gradient--card);
+	background: linear-gradient(160deg, #f8fafc 0%, #e2e8f0 100%);
 	border-bottom: var(--egi-line);
 	isolation: isolate;
 }
@@ -906,11 +939,20 @@ video {
 	inset: 0;
 	z-index: 0;
 	background-image:
-		linear-gradient(to right, rgba(45, 58, 86, 0.3) 1px, transparent 1px),
-		linear-gradient(to bottom, rgba(45, 58, 86, 0.3) 1px, transparent 1px);
+		linear-gradient(to right, rgba(100, 116, 139, 0.18) 1px, transparent 1px),
+		linear-gradient(to bottom, rgba(100, 116, 139, 0.18) 1px, transparent 1px);
 	background-size: 32px 32px;
 	mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.85), transparent 80%);
 	-webkit-mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.85), transparent 80%);
+}
+
+.egi-product-card__media::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+	pointer-events: none;
+	background: linear-gradient(180deg, rgba(4, 8, 20, 0) 70%, rgba(4, 8, 20, 0.35) 100%);
 }
 
 .egi-product-card__media .wp-block-post-featured-image {
@@ -923,7 +965,7 @@ video {
 	object-fit: contain !important;
 	padding: var(--wp--preset--spacing--50);
 	transition: transform var(--wp--custom--transition--base);
-	filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.55));
+	mix-blend-mode: multiply;
 }
 
 .egi-product-card:hover .egi-product-card__media img {
@@ -1088,7 +1130,7 @@ video {
 	}
 
 	.egi-news-grid--featured .wp-block-post:first-child .wp-block-post-title {
-		font-size: var(--wp--preset--font-size--2xl);
+		font-size: var(--wp--preset--font-size--xxl);
 	}
 }
 
@@ -1104,7 +1146,7 @@ video {
 }
 
 .egi-article .wp-block-post-content h2 {
-	font-size: var(--wp--preset--font-size--2xl);
+	font-size: var(--wp--preset--font-size--xxl);
 	margin-block-start: var(--wp--preset--spacing--70);
 }
 
@@ -1469,12 +1511,12 @@ html.js .egi-reveal-stagger.is-visible > :nth-child(n+7) { transition-delay: 0.4
 }
 
 .egi-hide-desktop {
-	display: none;
+	display: none !important;
 }
 
 @media (max-width: 781px) {
 
-	.egi-hide-mobile { display: none; }
+	.egi-hide-mobile { display: none !important; }
 
 	.egi-hide-desktop { display: block; }
 

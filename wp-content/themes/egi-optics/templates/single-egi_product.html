@@ -22,7 +22,7 @@
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->
-				<!-- wp:post-title {"level":1,"className":"egi-balance","style":{"typography":{"fontSize":"var:preset|font-size|4xl"},"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} /-->
+				<!-- wp:post-title {"level":1,"className":"egi-balance","style":{"typography":{"fontSize":"var:preset|font-size|display"},"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} /-->
 				<!-- wp:post-excerpt {"className":"egi-lead","style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} /-->
 				<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|50"},"blockGap":"var:preset|spacing|30"}}} -->
 				<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--50)">
@@ -40,8 +40,8 @@
 			<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:48%">
 				<!-- wp:group {"className":"egi-hud","layout":{"type":"default"}} -->
 				<div class="wp-block-group egi-hud">
-					<!-- wp:group {"className":"egi-media-frame","layout":{"type":"default"}} -->
-					<div class="wp-block-group egi-media-frame">
+					<!-- wp:group {"className":"egi-media-frame egi-plate","layout":{"type":"default"}} -->
+					<div class="wp-block-group egi-media-frame egi-plate">
 						<!-- wp:post-featured-image {"aspectRatio":"4/3","sizeSlug":"large","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}}}} /-->
 					</div>
 					<!-- /wp:group -->
@@ -69,8 +69,8 @@
 				<!-- wp:paragraph {"className":"egi-label"} -->
 				<p class="egi-label">More systems</p>
 				<!-- /wp:paragraph -->
-				<!-- wp:heading {"style":{"typography":{"fontSize":"var:preset|font-size|3xl"}}} -->
-				<h2 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--3xl)">Related products</h2>
+				<!-- wp:heading {"style":{"typography":{"fontSize":"var:preset|font-size|xxxl"}}} -->
+				<h2 class="wp-block-heading" style="font-size:var(--wp--preset--font-size--xxxl)">Related products</h2>
 				<!-- /wp:heading -->
 			</div>
 			<!-- /wp:group -->
@@ -86,7 +86,7 @@
 
 		<!-- wp:query {"queryId":40,"query":{"perPage":3,"pages":0,"offset":0,"postType":"egi_product","order":"asc","orderBy":"menu_order","author":"","search":"","exclude":[],"sticky":"","inherit":false},"align":"wide","className":"egi-related-products"} -->
 		<div class="wp-block-query alignwide egi-related-products">
-			<!-- wp:post-template {"style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"grid","columnCount":3}} -->
+			<!-- wp:post-template {"style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"grid","minimumColumnWidth":"20rem"}} -->
 				<!-- wp:group {"className":"egi-product-card","layout":{"type":"default"}} -->
 				<div class="wp-block-group egi-product-card">
 					<!-- wp:group {"className":"egi-product-card__media","layout":{"type":"default"}} -->

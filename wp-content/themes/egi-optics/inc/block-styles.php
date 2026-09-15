@@ -34,11 +34,17 @@ function egi_optics_register_block_styles() {
 			)
 		);
 	}
-
-	// Core "outline" button style is replaced by our own variants.
-	unregister_block_style( 'core/button', 'outline' );
-	unregister_block_style( 'core/image', 'rounded' );
-	unregister_block_style( 'core/separator', 'dots' );
-	unregister_block_style( 'core/quote', 'plain' );
 }
 add_action( 'init', 'egi_optics_register_block_styles' );
+
+/**
+ * Core styles that clash with the design system are unregistered in the editor
+ * (they are registered client-side, so this must run as editor JS).
+ */
+function egi_optics_unregister_core_block_styles() {
+	wp_add_inline_script(
+		'wp-blocks',
+		"wp.domReady(function(){['outline'].forEach(function(s){wp.blocks.unregisterBlockStyle('core/button',s)});['rounded'].forEach(function(s){wp.blocks.unregisterBlockStyle('core/image',s)});['dots'].forEach(function(s){wp.blocks.unregisterBlockStyle('core/separator',s)});});"
+	);
+}
+add_action( 'enqueue_block_editor_assets', 'egi_optics_unregister_core_block_styles' );
