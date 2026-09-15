@@ -6,6 +6,10 @@ All notable changes to egi-optics.com are documented here. The format follows
 
 ## [Unreleased]
 
+### Fixed
+- Paspampres article: officer names corrected to Brig. Gen. TNI Laode and Lt. Col. Inf. Denny Sopyan
+  (text, photo alt/captions and photo file names).
+
 ## [1.0.0] - 2026-09-15
 
 Complete redesign and re-platforming of egi-optics.com: from an Elementor/Solace template site to a
