@@ -6,6 +6,10 @@ All notable changes to egi-optics.com are documented here. The format follows
 
 ## [Unreleased]
 
+### Fixed
+- Accessibility: footer column labels are paragraphs instead of `h6` headings (heading order), and the
+  violet product accent is brighter (#A78BFA) to meet the 4.5:1 contrast ratio for small text.
+
 ## [1.1.0] - 2026-09-15
 
 ### Fixed
