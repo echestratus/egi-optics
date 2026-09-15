@@ -1,0 +1,28 @@
+# Files that must never be deployed to the server (used by deploy.yml and the CI packaging dry run).
+# Paths are relative to the theme/plugin directory being synced.
+node_modules/
+vendor/
+tests/
+src/
+.git/
+.github/
+.cache/
+.DS_Store
+Thumbs.db
+*.map
+*.log
+*.md
+.editorconfig
+.eslintrc*
+.stylelintrc*
+.prettierrc*
+.phpcs.xml*
+phpcs.xml*
+phpunit.xml*
+composer.json
+composer.lock
+package.json
+package-lock.json
+webpack.config.js
+.distignore
+.rsync-exclude

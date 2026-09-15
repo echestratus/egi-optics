@@ -1,0 +1,99 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  php:
+    name: PHP lint + WordPress Coding Standards
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP 8.2 (matches production)
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          coverage: none
+          tools: composer:v2
+
+      - name: Cache Composer downloads
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/composer
+          key: composer-${{ runner.os }}-${{ hashFiles('composer.lock') }}
+          restore-keys: composer-${{ runner.os }}-
+
+      - name: Install PHP dependencies
+        run: composer install --no-interaction --no-progress --prefer-dist
+
+      - name: PHP syntax check
+        run: composer lint:syntax
+
+      - name: PHPCS (WordPress-Extra, WordPress-Docs, PHPCompatibilityWP)
+        # Warnings are reported but only errors fail the build.
+        run: vendor/bin/phpcs --report=full --runtime-set ignore_warnings_on_exit 1
+
+  frontend:
+    name: CSS / JS / JSON checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install npm dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Validate theme.json / block.json / config JSON
+        run: npm run validate
+
+      - name: stylelint
+        run: npm run lint:css
+
+      - name: eslint
+        run: npm run lint:js
+
+  package:
+    name: Build deploy artefact (dry run)
+    runs-on: ubuntu-latest
+    needs: [php, frontend]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Assemble the exact file set that deploy.yml would rsync
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          rsync -a --exclude-from=.rsync-exclude wp-content/themes/egi-optics/ dist/themes/egi-optics/
+          rsync -a --exclude-from=.rsync-exclude wp-content/plugins/egi-optics-core/ dist/plugins/egi-optics-core/
+          echo "Theme files:";  find dist/themes  -type f | wc -l
+          echo "Plugin files:"; find dist/plugins -type f | wc -l
+          test -f dist/themes/egi-optics/style.css
+          test -f dist/themes/egi-optics/theme.json
+          test -f dist/plugins/egi-optics-core/egi-optics-core.php
+          # Version headers must agree with each other.
+          T=$(grep -m1 -oP '^Version:\s*\K[0-9.]+' dist/themes/egi-optics/style.css)
+          P=$(grep -m1 -oP '^\s*\*\s*Version:\s*\K[0-9.]+' dist/plugins/egi-optics-core/egi-optics-core.php)
+          echo "theme=$T plugin=$P"
+          [ "$T" = "$P" ] || { echo "Theme and plugin versions differ"; exit 1; }
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: egi-optics-dist
+          path: dist
+          retention-days: 7
