@@ -79,7 +79,7 @@ jobs:
       - name: Assemble the exact file set that deploy.yml would rsync
         run: |
           set -euo pipefail
-          mkdir -p dist
+          mkdir -p dist/themes/egi-optics dist/plugins/egi-optics-core
           rsync -a --exclude-from=.rsync-exclude wp-content/themes/egi-optics/ dist/themes/egi-optics/
           rsync -a --exclude-from=.rsync-exclude wp-content/plugins/egi-optics-core/ dist/plugins/egi-optics-core/
           echo "Theme files:";  find dist/themes  -type f | wc -l
