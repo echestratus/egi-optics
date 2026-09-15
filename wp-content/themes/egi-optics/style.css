@@ -351,6 +351,7 @@ video {
 /* Use the hamburger up to 1023px: five items plus the CTA do not fit between 600 and 1024px
    (core switches at 600px only). */
 @media (min-width: 600px) and (max-width: 1023px) {
+
 	.egi-header .wp-block-navigation__responsive-container:not(.is-menu-open):not(.hidden-by-default) {
 		display: none;
 	}
