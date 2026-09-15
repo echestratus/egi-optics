@@ -11,10 +11,10 @@
  */
 
 ?>
-<!-- wp:cover {"url":"<?php echo esc_url( egi_optics_asset( 'img/hero-optics.jpg' ) ); ?>","dimRatio":60,"overlayColor":"base","isUserOverlayColor":true,"minHeight":88,"minHeightUnit":"vh","contentPosition":"center left","align":"full","className":"egi-hero","style":{"spacing":{"padding":{"top":"var:preset|spacing|90","bottom":"var:preset|spacing|80"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-cover alignfull has-custom-content-position is-position-center-left egi-hero" style="padding-top:var(--wp--preset--spacing--90);padding-bottom:var(--wp--preset--spacing--80);min-height:88vh"><img class="wp-block-cover__image-background" alt="" src="<?php echo esc_url( egi_optics_asset( 'img/hero-optics.jpg' ) ); ?>" data-object-fit="cover"/><span aria-hidden="true" class="wp-block-cover__background has-base-background-color has-background-dim-60 has-background-dim"></span><div class="wp-block-cover__inner-container">
-	<!-- wp:group {"className":"egi-hero__content","layout":{"type":"constrained","justifyContent":"left","contentSize":"820px"}} -->
-	<div class="wp-block-group egi-hero__content">
+<!-- wp:cover {"url":"<?php echo esc_url( egi_optics_asset( 'img/hero-optics.webp' ) ); ?>","dimRatio":60,"overlayColor":"base","isUserOverlayColor":true,"align":"full","className":"egi-hero","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"0","right":"0"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-cover alignfull egi-hero" style="padding-top:var(--wp--preset--spacing--80);padding-right:0;padding-bottom:var(--wp--preset--spacing--80);padding-left:0"><img class="wp-block-cover__image-background" alt="" src="<?php echo esc_url( egi_optics_asset( 'img/hero-optics.webp' ) ); ?>" data-object-fit="cover"/><span aria-hidden="true" class="wp-block-cover__background has-base-background-color has-background-dim-60 has-background-dim"></span><div class="wp-block-cover__inner-container">
+	<!-- wp:group {"align":"wide","className":"egi-hero__content","layout":{"type":"constrained","justifyContent":"left","contentSize":"820px"}} -->
+	<div class="wp-block-group alignwide egi-hero__content">
 		<!-- wp:paragraph {"className":"egi-label egi-label--dot"} -->
 		<p class="egi-label egi-label--dot"><?php echo esc_html__( 'Defense subsidiary of EGI Resources · Jakarta, Indonesia', 'egi-optics' ); ?></p>
 		<!-- /wp:paragraph -->
