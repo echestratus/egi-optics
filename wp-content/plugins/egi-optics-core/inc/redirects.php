@@ -57,6 +57,12 @@ function egi_core_handle_legacy_redirects() {
 		return;
 	}
 
+	// The map describes the new site structure: only redirect once the egi-optics theme is live,
+	// otherwise the legacy pages would be redirected to targets that do not exist yet.
+	if ( 'egi-optics' !== get_stylesheet() ) {
+		return;
+	}
+
 	$request_uri = isset( $_SERVER['REQUEST_URI'] ) ? wp_unslash( $_SERVER['REQUEST_URI'] ) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- parsed and compared against a fixed allow-list below.
 	$path        = wp_parse_url( $request_uri, PHP_URL_PATH );
 	if ( ! is_string( $path ) || '' === $path ) {
