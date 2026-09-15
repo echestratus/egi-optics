@@ -3,7 +3,7 @@
  * Plugin Name:       EGI Optics Core
  * Plugin URI:        https://github.com/echestratus/egi-optics
  * Description:       Site-specific functionality for egi-optics.com: Products post type and categories, product meta, legacy URL redirects and security hardening. The theme depends on this plugin for the data model.
- * Version:           1.1.0
+ * Version:           1.1.1
  * Requires at least: 6.7
  * Requires PHP:      8.2
  * Author:            PT EGI Optik Indonesia
@@ -18,7 +18,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'EGI_CORE_VERSION', '1.1.0' );
+define( 'EGI_CORE_VERSION', '1.1.1' );
 define( 'EGI_CORE_FILE', __FILE__ );
 define( 'EGI_CORE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'EGI_CORE_URL', plugin_dir_url( __FILE__ ) );
