@@ -295,10 +295,9 @@ if ( ! defined( 'EGI_CONTENT_LIB' ) ) {
 		return (int) $result['term_id'];
 	}
 
-	/*
-	------------------------------------------------------------------
-	 * Block markup builders (keep content scripts readable).
-	 * ------------------------------------------------------------------ */
+	// ------------------------------------------------------------------
+	// Block markup builders (keep content scripts readable).
+	// ------------------------------------------------------------------
 
 	/**
 	 * Escape text for block HTML content.
@@ -324,16 +323,16 @@ if ( ! defined( 'EGI_CONTENT_LIB' ) ) {
 	 * Paragraph block.
 	 *
 	 * @param string $text  Text (may contain <strong>/<em>/<a>).
-	 * @param string $class Extra class.
+	 * @param string $css_class Extra class.
 	 * @param array  $attrs Extra block attributes.
 	 * @return string
 	 */
-	function egi_b_p( $text, $class = '', $attrs = array() ) {
-		if ( $class ) {
-			$attrs['className'] = $class;
+	function egi_b_p( $text, $css_class = '', $attrs = array() ) {
+		if ( $css_class ) {
+			$attrs['className'] = $css_class;
 		}
 		$json = $attrs ? ' ' . wp_json_encode( $attrs ) : '';
-		$cls  = $class ? ' class="' . esc_attr( $class ) . '"' : '';
+		$cls  = $css_class ? ' class="' . esc_attr( $css_class ) . '"' : '';
 		return "<!-- wp:paragraph{$json} --><p{$cls}>" . egi_b_text( $text ) . "</p><!-- /wp:paragraph -->\n";
 	}
 
@@ -342,17 +341,17 @@ if ( ! defined( 'EGI_CONTENT_LIB' ) ) {
 	 *
 	 * @param string $text  Text.
 	 * @param int    $level Level.
-	 * @param string $class Class.
+	 * @param string $css_class Class.
 	 * @param string $size  Font size preset slug (optional).
 	 * @return string
 	 */
-	function egi_b_h( $text, $level = 2, $class = '', $size = '' ) {
+	function egi_b_h( $text, $level = 2, $css_class = '', $size = '' ) {
 		$attrs = array();
 		if ( 2 !== $level ) {
 			$attrs['level'] = $level;
 		}
-		if ( $class ) {
-			$attrs['className'] = $class;
+		if ( $css_class ) {
+			$attrs['className'] = $css_class;
 		}
 		$style = '';
 		if ( $size ) {
@@ -360,7 +359,7 @@ if ( ! defined( 'EGI_CONTENT_LIB' ) ) {
 			$style          = ' style="font-size:var(--wp--preset--font-size--' . $size . ')"';
 		}
 		$json = $attrs ? ' ' . wp_json_encode( $attrs ) : '';
-		$cls  = 'wp-block-heading' . ( $class ? ' ' . esc_attr( $class ) : '' );
+		$cls  = 'wp-block-heading' . ( $css_class ? ' ' . esc_attr( $css_class ) : '' );
 		return "<!-- wp:heading{$json} --><h{$level} class=\"{$cls}\"{$style}>" . egi_b_text( $text ) . "</h{$level}><!-- /wp:heading -->\n";
 	}
 
@@ -463,11 +462,11 @@ if ( ! defined( 'EGI_CONTENT_LIB' ) ) {
 	 * @param string $basename Asset file name.
 	 * @param string $alt      Alt text.
 	 * @param string $caption  Caption.
-	 * @param string $class    Extra class (e.g. is-style-egi-frame).
+	 * @param string $css_class Extra class (e.g. is-style-egi-frame).
 	 * @param string $size     Size slug.
 	 * @return string
 	 */
-	function egi_b_image( $basename, $alt, $caption = '', $class = '', $size = 'large' ) {
+	function egi_b_image( $basename, $alt, $caption = '', $css_class = '', $size = 'large' ) {
 		$id = egi_content_find_attachment( $basename );
 		if ( ! $id ) {
 			return '';
@@ -478,10 +477,10 @@ if ( ! defined( 'EGI_CONTENT_LIB' ) ) {
 			'sizeSlug'        => $size,
 			'linkDestination' => 'none',
 		);
-		if ( $class ) {
-			$attrs['className'] = $class;
+		if ( $css_class ) {
+			$attrs['className'] = $css_class;
 		}
-		$cls = 'wp-block-image size-' . $size . ( $class ? ' ' . esc_attr( $class ) : '' );
+		$cls = 'wp-block-image size-' . $size . ( $css_class ? ' ' . esc_attr( $css_class ) : '' );
 		$cap = $caption ? '<figcaption class="wp-element-caption">' . egi_b_text( $caption ) . '</figcaption>' : '';
 		return '<!-- wp:image ' . wp_json_encode( $attrs ) . ' --><figure class="' . $cls . '"><img src="' . esc_url( $src ) . '" alt="' . esc_attr( $alt ) . '" class="wp-image-' . $id . '"/>' . $cap . "</figure><!-- /wp:image -->\n";
 	}
@@ -534,14 +533,14 @@ if ( ! defined( 'EGI_CONTENT_LIB' ) ) {
 	 * Section wrapper (full width, constrained).
 	 *
 	 * @param string $inner   Inner blocks.
-	 * @param string $class   Extra classes.
+	 * @param string $css_class Extra classes.
 	 * @param string $pad_top Padding top preset.
 	 * @param string $pad_bot Padding bottom preset.
 	 * @return string
 	 */
-	function egi_b_section( $inner, $class = '', $pad_top = '70', $pad_bot = '70' ) {
-		$cls = trim( 'alignfull ' . $class );
-		return '<!-- wp:group {"align":"full","className":"' . esc_attr( $class ) . '","style":{"spacing":{"padding":{"top":"var:preset|spacing|' . $pad_top . '","bottom":"var:preset|spacing|' . $pad_bot . '"}}},"layout":{"type":"constrained"}} -->'
+	function egi_b_section( $inner, $css_class = '', $pad_top = '70', $pad_bot = '70' ) {
+		$cls = trim( 'alignfull ' . $css_class );
+		return '<!-- wp:group {"align":"full","className":"' . esc_attr( $css_class ) . '","style":{"spacing":{"padding":{"top":"var:preset|spacing|' . $pad_top . '","bottom":"var:preset|spacing|' . $pad_bot . '"}}},"layout":{"type":"constrained"}} -->'
 			. '<div class="wp-block-group ' . esc_attr( $cls ) . '" style="padding-top:var(--wp--preset--spacing--' . $pad_top . ');padding-bottom:var(--wp--preset--spacing--' . $pad_bot . ')">'
 			. $inner . "</div><!-- /wp:group -->\n";
 	}

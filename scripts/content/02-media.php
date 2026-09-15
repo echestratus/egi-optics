@@ -10,7 +10,7 @@
 require_once __DIR__ . '/lib/bootstrap.php';
 
 egi_content_log( '== 02 media ==' );
-egi_content_log( '  assets dir: ' . ( egi_content_assets_dir() ?: '(none found!)' ) );
+egi_content_log( '  assets dir: ' . ( egi_content_assets_dir() ? egi_content_assets_dir() : '(none found!)' ) );
 
 $egi_media = array(
 	// Brand.

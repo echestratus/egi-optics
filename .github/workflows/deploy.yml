@@ -37,7 +37,7 @@ jobs:
       SITE_PATH: ${{ secrets.HOSTINGER_PATH }}
       ACTIVATE_THEME: ${{ inputs.activate_theme != '' && inputs.activate_theme || vars.ACTIVATE_THEME || '0' }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Configure SSH
         run: |
