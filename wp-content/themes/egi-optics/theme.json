@@ -83,7 +83,8 @@
         { "slug": "60", "name": "6", "size": "clamp(1.5rem, 1rem + 2vw, 2.5rem)" },
         { "slug": "70", "name": "7", "size": "clamp(2rem, 1.25rem + 3vw, 4rem)" },
         { "slug": "80", "name": "8", "size": "clamp(3rem, 2rem + 5vw, 6rem)" },
-        { "slug": "90", "name": "9", "size": "clamp(4rem, 2.5rem + 7vw, 8rem)" }
+        { "slug": "90", "name": "9", "size": "clamp(4rem, 2.5rem + 7vw, 8rem)" },
+        { "slug": "gutter", "name": "Gutter (side padding)", "size": "clamp(1.25rem, 5vw, 2.5rem)" }
       ]
     },
     "typography": {
@@ -173,9 +174,9 @@
       "blockGap": "var(--wp--preset--spacing--50)",
       "padding": {
         "top": "0",
-        "right": "var(--wp--preset--spacing--50)",
+        "right": "var(--wp--preset--spacing--gutter)",
         "bottom": "0",
-        "left": "var(--wp--preset--spacing--50)"
+        "left": "var(--wp--preset--spacing--gutter)"
       }
     },
     "elements": {

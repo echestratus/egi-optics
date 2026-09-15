@@ -6,9 +6,23 @@ All notable changes to egi-optics.com are documented here. The format follows
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-09-15
+
 ### Fixed
+- Header and footer now use a constrained layout: on wide monitors the logo, menu and CTA line up with
+  the 1400px content area instead of touching the screen edges.
+- Hero content is centred with the rest of the page (the Cover block no longer pins it to the left).
 - Paspampres article: officer names corrected to Brig. Gen. TNI Laode and Lt. Col. Inf. Denny Sopyan
   (text, photo alt/captions and photo file names).
+
+### Changed
+- Mobile-first theme CSS: base styles target phones and are enhanced at 600 / 782 / 1024px.
+  Fluid side gutters (`clamp(1.25rem, 5vw, 2.5rem)`), compact 64px header with a 44px hamburger up to
+  1023px, natural-height hero with stacked full-width buttons on phones, two-column stat tiles, larger
+  mono labels (11px minimum), 44px minimum touch targets for buttons, links and form fields, spec
+  tables with a fixed label column, product image shown before the copy on phones.
+- "Request a briefing" is available inside the mobile menu overlay.
+- Hero background served as WebP (156 KB instead of 480 KB).
 
 ## [1.0.0] - 2026-09-15
 
@@ -57,5 +71,6 @@ custom WordPress block theme, deployed from Git.
   Elementor library items (all trashed, recoverable; full pre-redesign snapshot in
   `~/backups/egi-optics/pre-overhaul-20260915-022900/`).
 
-[Unreleased]: https://github.com/echestratus/egi-optics/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/echestratus/egi-optics/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/echestratus/egi-optics/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/echestratus/egi-optics/releases/tag/v1.0.0

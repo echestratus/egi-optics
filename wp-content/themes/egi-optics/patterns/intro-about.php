@@ -46,7 +46,7 @@
 			<!-- wp:group {"className":"egi-hud","layout":{"type":"constrained"}} -->
 			<div class="wp-block-group egi-hud">
 				<!-- wp:image {"sizeSlug":"large","className":"is-style-egi-plain egi-media-frame"} -->
-				<figure class="wp-block-image size-large is-style-egi-plain egi-media-frame"><img src="<?php echo esc_url( egi_optics_asset( 'img/hero-optics.jpg' ) ); ?>" alt="<?php echo esc_attr__( 'Laser weapon system and laser aiming module on an optical engineering bench', 'egi-optics' ); ?>"/></figure>
+				<figure class="wp-block-image size-large is-style-egi-plain egi-media-frame"><img src="<?php echo esc_url( egi_optics_asset( 'img/hero-optics.webp' ) ); ?>" alt="<?php echo esc_attr__( 'Laser weapon system and laser aiming module on an optical engineering bench', 'egi-optics' ); ?>"/></figure>
 				<!-- /wp:image -->
 			</div>
 			<!-- /wp:group -->
