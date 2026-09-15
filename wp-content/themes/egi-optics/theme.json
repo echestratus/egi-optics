@@ -39,7 +39,7 @@
         { "slug": "accent", "name": "Accent cyan", "color": "#22D3EE" },
         { "slug": "amber", "name": "Amber", "color": "#F59E0B" },
         { "slug": "emerald", "name": "Emerald", "color": "#10B981" },
-        { "slug": "violet", "name": "Violet", "color": "#8B5CF6" },
+        { "slug": "violet", "name": "Violet", "color": "#A78BFA" },
         { "slug": "rose", "name": "Rose", "color": "#EF4444" },
         { "slug": "white", "name": "White", "color": "#FFFFFF" },
         { "slug": "black", "name": "Black", "color": "#000000" }
