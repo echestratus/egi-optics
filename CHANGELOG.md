@@ -6,6 +6,52 @@ All notable changes to egi-optics.com are documented here. The format follows
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-09-15
+
+Complete redesign and re-platforming of egi-optics.com: from an Elementor/Solace template site to a
+custom WordPress block theme, deployed from Git.
+
 ### Added
-- Repository scaffold: allow-list `.gitignore`, Composer and npm tooling, `wp-env` local environment.
-- Cursor rules and documentation for Git workflow, SDLC/CI-CD, WordPress development and content editing.
+- **Theme `egi-optics`** (block theme): dark precision-engineering design system in `theme.json`
+  (palette, fluid type scale, spacing, shadows), self-hosted Space Grotesk / DM Sans / JetBrains Mono,
+  templates for home, pages, news index/articles, product archive/category/single, search and 404,
+  header/footer parts with slug-resolved navigation, 17 block patterns (hero, stats, intro, products grid,
+  competencies, why EGI, vision/mission, field-trial video, downloads, latest news, contact cards, CTA,
+  full Home/About/Contact pages, product body), block styles (spec table, check/square/tag lists, outline
+  and ghost buttons, card/panel groups, engineering frame, glow separator), scroll-reveal and header
+  behaviour in plain JS with reduced-motion support.
+- **Plugin `egi-optics-core`**: `egi_product` post type and `product_category` taxonomy, product meta with
+  editor sidebar panel (tagline, datasheet, accent, badge), `egi/site` block-bindings source, 301 redirect
+  map for legacy URLs (active only once the theme is live), hardening (XML-RPC off, comments off, author
+  archives off, anonymous users endpoint hidden, security headers, generic login errors, SVG upload limits),
+  Organization schema.
+- **Content**: seven products merged from the EGI Resources holding site and the previous datasheets
+  (Laser Weapon System, Fenix Mobile Counter-UAV Laser Complex, Remote Control Observation Unit, Laser
+  Point LAD-21T, Thermal Vision Sight TVD-35, Night Vision Monocular NV/M-19 Gen 4 with NV/G-14 variant,
+  Fusion TN-KS/2), four field-trial/R&D videos with posters, four datasheets, rebuilt Home/About/Contact,
+  News index, and the article "EGI Optik Indonesia Demonstrates Counter-UAV Laser Gun to Paspampres"
+  (7 September 2026) with photo gallery.
+- **Tooling and process**: Composer (PHPCS + WordPress Coding Standards + PHPCompatibility), npm
+  (`@wordpress/scripts`, `wp-env`, Playwright QA screenshots), idempotent WP-CLI content scripts,
+  Cursor rules and docs for Git workflow, SDLC/CI-CD, development and content editing.
+- **CI/CD**: GitHub Actions CI (PHP syntax, PHPCS, stylelint, eslint, JSON validation, packaging dry run)
+  and production deploy (server backup -> rsync theme/plugin -> post-deploy -> health check) over SSH to
+  Hostinger; Dependabot for actions, npm and composer.
+
+### Changed
+- Site identity: name "EGI Optik Indonesia", tagline, new logo (light variant for the dark UI), site icon,
+  HTTPS `siteurl`/`home`, timezone Asia/Jakarta, permalinks `/news/%postname%/`, products at `/products/`.
+- Rank Math: products and product categories in the sitemap, forms excluded and `noindex`, brand title on
+  the home page.
+- LiteSpeed Cache Guest Mode disabled (its vary request was blocked by Solid Security and produced a
+  JavaScript error on every page).
+
+### Removed
+- Elementor, Pro Elements, Happy Elementor Addons, Spectra, Solace Extra, Classic Editor plugins; Solace,
+  Astra, Twenty Twenty-Three/Four themes.
+- Template demo content: placeholder posts, Clients/Career/Locations pages, demo menus, duplicate forms,
+  Elementor library items (all trashed, recoverable; full pre-redesign snapshot in
+  `~/backups/egi-optics/pre-overhaul-20260915-022900/`).
+
+[Unreleased]: https://github.com/echestratus/egi-optics/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/echestratus/egi-optics/releases/tag/v1.0.0

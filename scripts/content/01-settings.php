@@ -68,6 +68,47 @@ egi_content_ensure_term( 'Electro-Optics', 'product_category', 'electro-optics',
 egi_content_ensure_term( 'Weapon Sights & Aiming', 'product_category', 'weapon-sights-aiming', 'Thermal sights and laser aiming devices for small arms.' );
 egi_content_ensure_term( 'Night Vision', 'product_category', 'night-vision', 'Image-intensifier monoculars, goggles and fusion devices.' );
 
+// Rank Math sitemap: include products and product categories, exclude form and attachment post types.
+$egi_sitemap = get_option( 'rank-math-options-sitemap', array() );
+if ( is_array( $egi_sitemap ) ) {
+	$egi_sitemap['pt_egi_product_sitemap']       = 'on';
+	$egi_sitemap['tax_product_category_sitemap'] = 'on';
+	$egi_sitemap['pt_sureforms_form_sitemap']    = 'off';
+	$egi_sitemap['pt_attachment_sitemap']        = 'off';
+	$egi_sitemap['tax_post_tag_sitemap']         = 'off';
+	update_option( 'rank-math-options-sitemap', $egi_sitemap );
+	delete_transient( 'rank_math_sitemap_cache' );
+	egi_content_log( '  • Rank Math sitemap: products on, forms off' );
+}
+
+// Rank Math titles: products and product categories are indexable with sensible defaults.
+$egi_titles = get_option( 'rank-math-options-titles', array() );
+if ( is_array( $egi_titles ) ) {
+	$egi_titles['pt_egi_product_title']             = '%title% %sep% %sitename%';
+	$egi_titles['pt_egi_product_description']       = '%excerpt%';
+	$egi_titles['pt_egi_product_robots']            = array( 'index' );
+	$egi_titles['pt_egi_product_custom_robots']     = 'off';
+	$egi_titles['pt_egi_product_archive_title']     = 'Products %sep% %sitename%';
+	$egi_titles['pt_sureforms_form_robots']         = array( 'noindex' );
+	$egi_titles['pt_sureforms_form_custom_robots']  = 'on';
+	$egi_titles['tax_product_category_title']       = '%term% %sep% Products %sep% %sitename%';
+	$egi_titles['tax_product_category_robots']      = array( 'index' );
+	$egi_titles['homepage_title']                   = '%sitename% %sep% %sitedesc%';
+	$egi_titles['homepage_description']             = 'EGI Optik Indonesia designs, assembles and supports laser weapon systems, counter-UAV complexes, electro-optical surveillance, thermal and night-vision equipment for Indonesia\'s defense and security forces.';
+	$egi_titles['title_separator']                  = '·';
+	update_option( 'rank-math-options-titles', $egi_titles );
+	egi_content_log( '  • Rank Math titles: product defaults set, forms noindex' );
+}
+
+// LiteSpeed Cache: Guest Mode requests /wp-content/plugins/litespeed-cache/guest.vary.php, which Solid
+// Security's "disable PHP in plugins" rule blocks with a 403 (visible as a JS error on every page). The
+// page cache itself does not depend on Guest Mode, so keep it off.
+if ( false !== get_option( 'litespeed.conf.guest', false ) ) {
+	update_option( 'litespeed.conf.guest', false );
+	update_option( 'litespeed.conf.guest_optm', false );
+	egi_content_log( '  • LiteSpeed Guest Mode disabled (conflicts with Solid Security PHP-in-plugins rule)' );
+}
+
 // Permalinks: posts live under /news/, products under /products/ (CPT rewrite).
 global $wp_rewrite;
 $wp_rewrite->set_permalink_structure( '/news/%postname%/' );

@@ -81,6 +81,18 @@ Required repository secrets:
 | `HOSTINGER_PATH`     | `/home/u406190896/domains/egi-optics.com/public_html`   |
 | `HOSTINGER_KNOWN_HOSTS` | output of `ssh-keyscan -p 65002 147.93.99.109`        |
 
+Repository variable `ACTIVATE_THEME` (`1` since the 2026-09-15 cutover): when `0`, deploys install the
+theme without activating it and only health-check `/`; `workflow_dispatch` can override it per run.
+
+### Visual QA before a PR
+
+```bash
+node scripts/dev/screenshot.mjs http://localhost:8888/ /tmp/qa/home both   # desktop 1440 + mobile 390, full page
+```
+
+The script scrolls the page first so scroll-reveal sections and lazy images are captured. Attach the
+PNGs to the pull request.
+
 ## 5. Third-party software policy
 
 | Plugin            | Purpose                       | Update path                                  |

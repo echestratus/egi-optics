@@ -81,7 +81,12 @@ $egi_home         = egi_content_upsert_post(
 		'post_content' => $egi_home_content,
 		'post_excerpt' => 'EGI Optik Indonesia designs, assembles and supports laser weapon systems, counter-UAV complexes, electro-optical surveillance, thermal and night-vision equipment for Indonesia\'s defense and security forces.',
 	),
-	array( '_wp_page_template' => 'page-landing' )
+	array(
+		'_wp_page_template'     => 'page-landing',
+		// Rank Math uses the page title for a static front page; give the home page a brand title instead.
+		'rank_math_title'       => '%sitename% %sep% %sitedesc%',
+		'rank_math_description' => 'EGI Optik Indonesia designs, assembles and supports laser weapon systems, counter-UAV complexes, electro-optical surveillance, thermal and night-vision equipment for Indonesia\'s defense and security forces.',
+	)
 );
 
 // About.

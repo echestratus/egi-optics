@@ -91,7 +91,23 @@ gh secret set HOSTINGER_SSH_KEY < deploy_key
 shred -u deploy_key deploy_key.pub   # never keep the private key on disk
 ```
 
-## 6. Useful server commands
+## 6. Content migration scripts
+
+The deploy job copies `scripts/` to `~/egi-scripts/` on the server. Content scripts are idempotent and
+expect the prepared media in `~/egi-content-assets/` (built locally with
+`scripts/dev/prepare-assets.ps1` and uploaded with `scp`).
+
+```bash
+cd ~/domains/egi-optics.com/public_html
+EGI_ASSETS_DIR=$HOME/egi-content-assets wp eval-file ~/egi-scripts/content/run-production.php   # all steps
+wp eval-file ~/egi-scripts/content/04-pages.php                                                # single step
+```
+
+Steps: `01-settings` (identity, permalinks, Rank Math, LiteSpeed), `02-media`, `03-products`, `04-pages`,
+`05-navigation`, `06-news`, `07-cleanup`. The 2026-09-15 cutover ran them in this order right after
+`wp theme activate egi-optics`; the previous site is preserved in the `pre-overhaul-*` backup.
+
+## 7. Useful server commands
 
 ```bash
 wp theme list; wp plugin list --update=available
