@@ -1,0 +1,88 @@
+# ------------------------------------------------------------------
+# EGI Optics - WordPress project .gitignore
+# Only OUR code is versioned: custom theme, custom plugin, tooling, docs.
+# WordPress core, third-party plugins/themes, uploads, DB dumps and
+# any secrets are never committed.
+# ------------------------------------------------------------------
+
+# --- WordPress core (never committed; installed on the server / by wp-env)
+/wp-admin/
+/wp-includes/
+/wp-*.php
+/index.php
+/xmlrpc.php
+/license.txt
+/readme.html
+/default.php
+/llms.txt
+/.htaccess
+/.htaccess.bk
+
+# --- wp-content: ignore everything except our own theme and plugin
+/wp-content/*
+!/wp-content/themes/
+/wp-content/themes/*
+!/wp-content/themes/egi-optics/
+!/wp-content/plugins/
+/wp-content/plugins/*
+!/wp-content/plugins/egi-optics-core/
+!/wp-content/mu-plugins/
+/wp-content/mu-plugins/*
+!/wp-content/mu-plugins/egi-*.php
+
+# --- Secrets & environment
+wp-config.php
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_ed25519*
+id_rsa*
+
+# --- Database dumps / backups
+*.sql
+*.sql.gz
+*.sql.zip
+/backups/
+
+# --- Local working assets (source media & internal documents; media lives in WP uploads)
+/assets/
+
+# --- Dependencies
+/node_modules/
+/vendor/
+/wp-content/themes/egi-optics/node_modules/
+/wp-content/plugins/egi-optics-core/node_modules/
+/wp-content/plugins/egi-optics-core/vendor/
+
+# --- Build artefacts (rebuilt in CI)
+/wp-content/plugins/egi-optics-core/build/
+
+# --- Tooling caches
+.phpcs-cache
+.phpunit.result.cache
+.eslintcache
+.stylelintcache
+/.wp-env/
+/.wp-env.override.json
+/coverage/
+/dist/
+*.log
+*.tsbuildinfo
+
+# --- OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+*.swp
+*.swo
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# --- Cursor (keep rules & plans; ignore local state)
+.cursor/*
+!.cursor/rules/
+!.cursor/plans/
