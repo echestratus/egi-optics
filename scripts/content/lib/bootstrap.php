@@ -75,6 +75,13 @@ if ( ! defined( 'EGI_CONTENT_LIB' ) ) {
 			)
 		);
 
+		// Pages: set the template explicitly. Existing pages may carry a template from the previous theme
+		// (e.g. Elementor's "elementor_header_footer"), which wp_update_post() rejects as invalid.
+		if ( 'page' === $data['post_type'] ) {
+			$data['page_template'] = isset( $meta['_wp_page_template'] ) ? $meta['_wp_page_template'] : 'default';
+			unset( $meta['_wp_page_template'] );
+		}
+
 		if ( $existing ) {
 			$data['ID'] = (int) $existing[0];
 			$post_id    = wp_update_post( wp_slash( $data ), true );

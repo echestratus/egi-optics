@@ -111,15 +111,19 @@ $egi_contact = egi_content_upsert_post(
 // News index page (was "Blog"). Rename if the old page exists, otherwise create.
 $egi_blog = get_page_by_path( 'blog', OBJECT, 'page' );
 if ( $egi_blog ) {
-	wp_update_post(
+	$egi_renamed = wp_update_post(
 		array(
-			'ID'           => $egi_blog->ID,
-			'post_title'   => 'News',
-			'post_name'    => 'news',
-			'post_content' => '',
-		)
+			'ID'            => $egi_blog->ID,
+			'post_title'    => 'News',
+			'post_name'     => 'news',
+			'post_content'  => '',
+			'page_template' => 'default', // the old Solace template no longer exists.
+		),
+		true
 	);
-	delete_post_meta( $egi_blog->ID, '_wp_page_template' );
+	if ( is_wp_error( $egi_renamed ) ) {
+		WP_CLI::error( 'Failed to rename Blog page: ' . $egi_renamed->get_error_message() );
+	}
 	$egi_news = (int) $egi_blog->ID;
 	egi_content_log( "  • page #{$egi_news} renamed Blog -> News" );
 } else {
