@@ -154,15 +154,15 @@
         },
         {
             "name": "wpackagist-plugin/better-wp-security",
-            "version": "10.0.3",
+            "version": "10.0.5",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/better-wp-security/",
-                "reference": "tags/10.0.3"
+                "reference": "tags/10.0.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/better-wp-security.10.0.3.zip"
+                "url": "https://downloads.wordpress.org/plugin/better-wp-security.10.0.5.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -190,15 +190,15 @@
         },
         {
             "name": "wpackagist-plugin/seo-by-rank-math",
-            "version": "1.0.278",
+            "version": "1.0.279",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/seo-by-rank-math/",
-                "reference": "tags/1.0.278"
+                "reference": "tags/1.0.279"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/seo-by-rank-math.1.0.278.zip"
+                "url": "https://downloads.wordpress.org/plugin/seo-by-rank-math.1.0.279.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -208,15 +208,15 @@
         },
         {
             "name": "wpackagist-plugin/sureforms",
-            "version": "2.12.7",
+            "version": "2.12.8",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/sureforms/",
-                "reference": "tags/2.12.7"
+                "reference": "tags/2.12.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/sureforms.2.12.7.zip"
+                "url": "https://downloads.wordpress.org/plugin/sureforms.2.12.8.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
