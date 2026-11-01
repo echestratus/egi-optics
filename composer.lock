@@ -154,15 +154,15 @@
         },
         {
             "name": "wpackagist-plugin/better-wp-security",
-            "version": "10.0.3",
+            "version": "10.0.6",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/better-wp-security/",
-                "reference": "tags/10.0.3"
+                "reference": "tags/10.0.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/better-wp-security.10.0.3.zip"
+                "url": "https://downloads.wordpress.org/plugin/better-wp-security.10.0.6.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -172,15 +172,15 @@
         },
         {
             "name": "wpackagist-plugin/litespeed-cache",
-            "version": "7.9.1",
+            "version": "7.9.2",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/litespeed-cache/",
-                "reference": "tags/7.9.1"
+                "reference": "tags/7.9.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/litespeed-cache.7.9.1.zip"
+                "url": "https://downloads.wordpress.org/plugin/litespeed-cache.7.9.2.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -190,15 +190,15 @@
         },
         {
             "name": "wpackagist-plugin/seo-by-rank-math",
-            "version": "1.0.278",
+            "version": "1.0.280",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/seo-by-rank-math/",
-                "reference": "tags/1.0.278"
+                "reference": "tags/1.0.280"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/seo-by-rank-math.1.0.278.zip"
+                "url": "https://downloads.wordpress.org/plugin/seo-by-rank-math.1.0.280.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -208,15 +208,15 @@
         },
         {
             "name": "wpackagist-plugin/sureforms",
-            "version": "2.12.7",
+            "version": "2.13.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/sureforms/",
-                "reference": "tags/2.12.7"
+                "reference": "tags/2.13.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/sureforms.2.12.7.zip"
+                "url": "https://downloads.wordpress.org/plugin/sureforms.2.13.0.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -226,15 +226,15 @@
         },
         {
             "name": "wpackagist-plugin/suremails",
-            "version": "2.0.2",
+            "version": "2.0.3",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/suremails/",
-                "reference": "tags/2.0.2"
+                "reference": "tags/2.0.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/suremails.2.0.2.zip"
+                "url": "https://downloads.wordpress.org/plugin/suremails.2.0.3.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
